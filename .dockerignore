@@ -1,0 +1,9 @@
+.git
+.codebase-memory
+.env
+docs
+backups
+data
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "night-forest",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Hidden green forest at dusk and twilight. Vanilla oak trees and mossy cobblestone arch beside winding woodland path, a few dim warm lanterns, little green-gold fireflies, low soft mist, natural elvish atmosphere suggested through composition, gentle blue-green shadows.",
+    "tool": "built-in imagegen"
+  },
+  {
+    "name": "night-swamp",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Secluded vanilla Minecraft swamp at dusk and twilight. Shallow still water, lily pads, vines hanging from oak trees, muddy grass banks, modest old wooden hut and short plank walkway on right, very dim warm lantern light. Soft rolling green mist obscuring distant trees, fireflies above the water, intimate concealed mysterious mood, dusky lavender sky. Softness and vanilla simplicity are essential.",
+    "tool": "built-in imagegen"
+  },
+  {
+    "name": "night-sanctuary",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Secret green forest clearing at twilight. Simple mossy cobblestone ruin and small still pool, fern undergrowth, oaks and vines, small waterfall. A few dim warm lanterns and fireflies in soft mist. Natural quiet elvish atmosphere without ornate architecture.",
+    "tool": "built-in imagegen"
+  },
+  {
+    "name": "day-reef",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Bright underwater vanilla Minecraft coral reef. View below clear turquoise surface with bright shining sun visible overhead and gentle sunbeams. Vanilla colorful coral blocks and sea grass, several different small tropical fish, one recognizable vanilla blocky sea turtle center-right and sea cucumbers on sand foreground. Bright yet soft cozy adventurous discovery.",
+    "tool": "built-in imagegen"
+  },
+  {
+    "name": "day-village",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Cute vanilla Minecraft desert village in daytime. Simple sandstone houses with flat roofs, small terracotta details and shaded doors, village well, cactus and dunes, a sandy lane center-right, pale clear blue sky and soft bright sunlight. Peaceful cozy adventurous feeling.",
+    "tool": "built-in imagegen"
+  },
+  {
+    "name": "day-temple",
+    "prompt": "Create one 16:9 landscape image for Minecraft website hero. Soft cozy vanilla Minecraft in-game scenery. Authentic simple low resolution pixel textures, cubic vanilla blocks and plants, modest builds achievable in survival, gentle lighting, soft atmospheric depth, restrained natural colors. Avoid elaborate fantasy architecture, photorealism, ultra detailed shaders, glossy ray tracing, dramatic contrast and oversharpening. Calm secluded hidden-world mood. Wide composition points of interest center-right; left third calm for text overlay. Pure image, no words, logos, UI, collage, borders or players. Vanilla Minecraft jungle temple at sunrise. Modest authentic mossy cobblestone jungle temple surrounded by jungle trees, vines and ferns, small stream and stepping stones. Low warm sun shining through soft morning mist. Gentle fresh greens and warm light, adventurous concealed discovery.",
+    "tool": "built-in imagegen"
+  }
+]

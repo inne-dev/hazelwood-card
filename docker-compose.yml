@@ -1,0 +1,43 @@
+services:
+  web:
+    build: .
+    container_name: hazelwood-card
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      APP_ADDR: 0.0.0.0:8080
+      DB_PATH: /data/hazelwood.sqlite
+      RCON_HOST: minecraft-server
+      RCON_PORT: 25575
+      RCON_PASSWORD_FILE: /run/secrets/rcon_password
+      BLUEMAP_URL: http://minecraft-server:8100
+    ports:
+      - 127.0.0.1:8080:8080
+    volumes:
+      - hazelwood-card-data:/data
+    networks:
+      - hazelwood-private
+    secrets:
+      - rcon_password
+    mem_limit: 128m
+    cpus: 0.50
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  hazelwood-card-data:
+
+networks:
+  hazelwood-private:
+    external: true
+    name: hazelwood-private
+
+secrets:
+  rcon_password:
+    file: ../minecraft-server/secrets/rcon_password

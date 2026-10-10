@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hazelwood — игроки онлайн, BlueMap и карточки жителей закрытого Minecraft-сервера." id="page-description">
+    <title>Hazelwood — мир Minecraft</title>
+    <link rel="icon" type="image/png" href="/assets/brand/hazelwood-favicon.png">
+    <link rel="preload" as="image" href="/assets/ambient/day-reef.webp" fetchpriority="low">
+    <link rel="preload" as="image" href="/assets/ambient/day-village.webp" fetchpriority="low">
+    <link rel="preload" as="image" href="/assets/ambient/day-temple.webp" fetchpriority="low">
+    <link rel="preload" as="image" href="/assets/ambient/night-forest.webp" fetchpriority="low">
+    <link rel="preload" as="image" href="/assets/ambient/night-swamp.webp" fetchpriority="low">
+    <link rel="preload" as="image" href="/assets/ambient/night-sanctuary.webp" fetchpriority="low">
+    <link rel="stylesheet" href="/styles.css?v=vines-2-map-preview-1-header-physics-2-header-wind-2-ambient-rays-3-map-angle-2-language-menu-1-map-angle-3-scene-blend-1-map-plane-2-header-glass-2-ui-cleanup-2-vines-top-2-header-shadow-1-scene-no-drag-1-ambient-prerender-2-map-fit-1-render-load-1-performance-2">
+    <script src="/app.js?v=vines-3-map-preview-1-header-physics-1-header-wind-2-ambient-rays-1-language-menu-1-ui-cleanup-1-header-glass-fix-1-ui-cleanup-3-vines-top-1-register-tab-1-ambient-prerender-2-map-access-1-render-load-1-performance-3-vine-physics-2" defer></script>
+  </head>
+  <body>
+    <div class="ambient-light" aria-hidden="true">
+      <img class="ambient-ray" data-ambient-layer="0" data-active="true" data-source="/assets/ambient/day-reef.webp" src="/assets/ambient/day-reef.webp" alt="" width="512" height="512" decoding="async">
+      <img class="ambient-ray" data-ambient-layer="1" data-active="false" alt="" width="512" height="512" decoding="async">
+    </div>
+    <svg class="header-vines" id="header-vines" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <g class="vine-sway vine-sway-a">
+        <path class="vine-stem" d="M82-8c-5 46 22 65 6 108-13 34 7 58 23 86 9 16 11 36 6 59"></path>
+        <path class="vine-leaf" d="M84 31 62 20l4 22 19 8zm7 47 22-15-2 24-18 12zm-7 46-23-9 7 22 20 7zm19 30 23-10-4 23-18 9z"></path>
+      </g>
+      <g class="vine-sway vine-sway-b">
+        <path class="vine-stem" d="M1008-12c18 44-11 70 8 111 18 38-6 67-20 99-7 15-7 32 1 53"></path>
+        <path class="vine-leaf" d="m1011 30 22-13-2 23-18 8zm5 48-23-14 3 24 19 10zm-13 48-21-10 4 23 18 8zm-3 42 23-13-3 24-18 9z"></path>
+      </g>
+      <g class="vine-sway vine-sway-c">
+        <path class="vine-stem" d="M1378-8c-11 39 10 61-5 95-14 31 8 58 17 85 6 18 4 39-5 64"></path>
+        <path class="vine-leaf" d="m1372 24-20-12 1 22 18 8zm6 42 21-13-4 22-18 8zm3 44-21-10 5 22 17 8zm8 42 20-12-3 23-17 8z"></path>
+      </g>
+    </svg>
+    <a class="skip-link" href="#main" data-i18n="skip">К содержимому</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Hazelwood — главная" data-i18n-aria="brand.home">
+        <img class="brand-mark" src="/assets/brand/hazelwood-mark.png" alt="" width="40" height="40">
+        <span class="brand-name">hazelwood<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Основная навигация" data-i18n-aria="nav.label">
+        <a href="#world" data-i18n="nav.server">Сервер</a>
+        <a href="#map" data-i18n="nav.map">Карта</a>
+        <a href="#account" id="account-nav" data-i18n="nav.login">Войти</a>
+      </nav>
+      <div class="language-control" id="language-control">
+        <button class="language-trigger" id="language-trigger" type="button" aria-label="Язык сайта" data-i18n-aria="language.label" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
+          <span data-language-code>RU</span><span class="language-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="language-menu" id="language-menu" role="listbox" aria-label="Язык сайта" data-i18n-aria="language.label" hidden>
+          <button class="language-option" type="button" role="option" lang="ru" data-language="ru" aria-selected="true" tabindex="-1">
+            <span class="language-name">Русский</span><span class="language-option-meta"><span>RU</span><span class="language-check" aria-hidden="true">✓</span></span>
+          </button>
+          <button class="language-option" type="button" role="option" lang="uk" data-language="uk" aria-selected="false" tabindex="-1">
+            <span class="language-name">Українська</span><span class="language-option-meta"><span>UK</span><span class="language-check" aria-hidden="true">✓</span></span>
+          </button>
+          <button class="language-option" type="button" role="option" lang="en" data-language="en" aria-selected="false" tabindex="-1">
+            <span class="language-name">English</span><span class="language-option-meta"><span>EN</span><span class="language-check" aria-hidden="true">✓</span></span>
+          </button>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false"><span class="theme-icon" aria-hidden="true"><i></i></span><span id="theme-label">Тёмная</span></button>
+      <a class="server-address" href="https://hazelwood-card.inne.space" aria-label="Адрес сайта Hazelwood" data-i18n-aria="server.address">
+        <span class="address-status" aria-hidden="true"></span>
+        hazelwood-card.inne.space
+      </a>
+    </header>
+
+
+    <main id="main">
+      <section class="hero shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-cube" aria-hidden="true"></span>HAZELWOOD · JAVA SERVER</p>
+          <h1 id="hero-title"><span class="hero-line" data-i18n="hero.line1">HAZELWOOD</span><br><span class="hero-line" data-i18n="hero.line2">МИР / 01</span><br><span data-i18n="hero.line3">JAVA EDITION</span></h1>
+          <p class="hero-intro" data-i18n="hero.intro">JAVA · 26.3</p>
+          <a class="button button-light" href="#world"><span data-i18n="hero.cta">Статус сервера</span><span aria-hidden="true">↘</span></a>
+          <p class="hero-motd"><span class="motd-dot" aria-hidden="true"></span><span data-i18n="hero.motd">WHITELIST · INVITE ONLY</span></p>
+        </div>
+        <div class="hero-carousel" id="hero-carousel" data-scene-carousel data-theme="light" role="region" aria-label="Сцены мира Hazelwood" data-i18n-aria="scene.carousel">
+          <div class="hero-scene-images" aria-hidden="true">
+            <img class="hero-scene-image" id="scene-image-a" src="/assets/scenes/day-reef.webp" srcset="/assets/scenes/day-reef-840.webp 840w, /assets/scenes/day-reef-1200.webp 1200w, /assets/scenes/day-reef.webp 1672w" sizes="(max-width: 820px) 94vw, 60vw" data-source="/assets/scenes/day-reef.webp" data-active="true" draggable="false" alt="" decoding="async" fetchpriority="high">
+            <img class="hero-scene-image" id="scene-image-b" data-active="false" draggable="false" alt="" decoding="async">
+          </div>
+          <div class="hero-carousel-controls">
+            <button class="scene-control" type="button" data-scene-action="previous" aria-label="Предыдущая сцена" data-i18n-aria="scene.previous"><span aria-hidden="true">←</span></button>
+            <div class="scene-pagination">
+              <div class="scene-pagination-set" data-scene-controls="day" role="group" aria-label="Дневные сцены" data-i18n-aria="scene.dayControls">
+                <button class="scene-indicator" type="button" data-scene-index="0" aria-label="Дневная сцена 1" data-i18n-aria="scene.day1" aria-pressed="true"></button>
+                <button class="scene-indicator" type="button" data-scene-index="1" aria-label="Дневная сцена 2" data-i18n-aria="scene.day2" aria-pressed="false"></button>
+                <button class="scene-indicator" type="button" data-scene-index="2" aria-label="Дневная сцена 3" data-i18n-aria="scene.day3" aria-pressed="false"></button>
+              </div>
+              <div class="scene-pagination-set" data-scene-controls="night" role="group" aria-label="Ночные сцены" data-i18n-aria="scene.nightControls" hidden>
+                <button class="scene-indicator" type="button" data-scene-index="0" aria-label="Ночная сцена 1" data-i18n-aria="scene.night1" aria-pressed="true"></button>
+                <button class="scene-indicator" type="button" data-scene-index="1" aria-label="Ночная сцена 2" data-i18n-aria="scene.night2" aria-pressed="false"></button>
+                <button class="scene-indicator" type="button" data-scene-index="2" aria-label="Ночная сцена 3" data-i18n-aria="scene.night3" aria-pressed="false"></button>
+              </div>
+            </div>
+            <div class="scene-transport">
+              <button class="scene-control scene-autoplay-toggle" id="scene-autoplay-toggle" type="button" data-scene-action="toggle-autoplay" aria-label="Поставить карусель на паузу" data-i18n-aria="scene.pause" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+              <button class="scene-control" type="button" data-scene-action="next" aria-label="Следующая сцена" data-i18n-aria="scene.next"><span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-stamp" aria-hidden="true"><span>HW</span><span>JAVA</span></div>
+      </section>
+
+      <section class="world-section shell section-space" id="world" aria-labelledby="world-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="world.eyebrow">МИР HAZELWOOD</span></p>
+            <h2 id="world-title" data-i18n="world.title">Активность</h2>
+          </div>
+        </div>
+
+        <div class="world-grid">
+          <article class="presence-panel panel" aria-labelledby="presence-title">
+            <div class="panel-topline">
+              <span class="panel-kicker"><span class="mini-block-icon" aria-hidden="true"></span> <span data-i18n="server.kicker">СЕРВЕР · JAVA</span></span>
+              <span class="status-pill status-loading" id="server-state"><span class="state-dot"></span><span id="server-state-text">Проверяем</span></span>
+            </div>
+            <h3 id="presence-title" class="visually-hidden" data-i18n="server.title">Состояние сервера</h3>
+            <div class="presence-count">
+              <span class="presence-number" id="online-count" aria-live="polite">—</span>
+              <span class="presence-total">/ <span id="max-players">—</span></span>
+              <span class="presence-label" data-i18n="server.playersLabel">игроков в мире</span>
+            </div>
+            <div class="player-presence">
+              <ul class="online-list" id="online-players" aria-live="polite" aria-label="Игроки онлайн" data-i18n-aria="server.onlineList">
+                <li class="inline-skeleton" aria-hidden="true"></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="map-panel" id="map" aria-labelledby="map-title">
+            <h3 id="map-title" class="visually-hidden" data-i18n="map.previewTitle">Снимок карты мира Hazelwood</h3>
+            <div class="map-stage">
+              <div class="map-preview" id="map-preview">
+                <span class="map-plane">
+                  <img class="map-preview-image" id="map-preview-image" src="/map-preview.png?v=preview-crop-1" alt="" loading="lazy" decoding="async">
+                </span>
+                <span class="map-preview-unavailable" id="map-preview-unavailable" role="status" data-i18n="map.previewUnavailable" hidden>Снимок карты недоступен</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="status-error" id="status-error" role="status" hidden></div>
+      </section>
+
+      <section class="account-section" id="account" aria-labelledby="account-title">
+        <div class="account-shell shell">
+          <h2 id="account-title" class="visually-hidden" data-i18n="account.title">Вход</h2>
+
+          <div class="account-workspace">
+            <div class="account-tabs" role="tablist" aria-label="Действия с аккаунтом" data-i18n-aria="account.tabsLabel">
+              <button class="account-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="login-pane" data-i18n="account.loginTab">Войти</button>
+              <button class="account-tab" id="tab-register" type="button" role="tab" aria-selected="false" aria-controls="register-pane" data-i18n="account.registerTab">Регистрация</button>
+            </div>
+            <div class="account-pane" id="login-pane" role="tabpanel" aria-labelledby="tab-login">
+              <form class="auth-form" id="login-form">
+                <label for="login-username" data-i18n="account.nickname">Игровой ник</label>
+                <input id="login-username" name="username" autocomplete="username" spellcheck="false" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Твой ник в Minecraft" data-i18n-placeholder="account.nicknamePlaceholder">
+                <label for="login-password" data-i18n="account.password">Пароль</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+                <button class="button button-light button-wide" type="submit"><span data-i18n="account.loginSubmit">Войти в Hazelwood</span><span aria-hidden="true">→</span></button>
+              </form>
+            </div>
+            <div class="account-pane" id="register-pane" role="tabpanel" aria-labelledby="tab-register" hidden>
+              <form class="auth-form" id="register-form">
+                <label for="register-username" data-i18n="account.nickname">Игровой ник</label>
+                <input id="register-username" name="username" autocomplete="username" spellcheck="false" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Твой ник в Minecraft" data-i18n-placeholder="account.nicknamePlaceholder">
+                <label for="register-password" data-i18n="account.password">Пароль</label>
+                <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" required>
+                <p class="form-hint form-hint-dark" data-i18n="account.passwordHint">Не короче 12 символов.</p>
+                <label for="invite-code" data-i18n="account.inviteCode">Код приглашения</label>
+                <input id="invite-code" name="inviteCode" autocomplete="off" autocapitalize="characters" required>
+                <button class="button button-light button-wide" type="submit"><span data-i18n="account.registerSubmit">Создать карточку</span><span aria-hidden="true">→</span></button>
+              </form>
+            </div>
+            <p class="form-message" id="auth-message" role="status" aria-live="polite" hidden></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="member-section shell section-space" id="member" aria-labelledby="member-title" hidden>
+        <div class="section-heading section-heading-inline">
+          <div><p class="eyebrow"><span class="eyebrow-rule"></span><span data-i18n="member.eyebrow">ТВОЯ КАРТОЧКА</span></p><h2 id="member-title" data-i18n="member.title">Житель Hazelwood</h2></div>
+          <button class="button button-outline" id="logout-button" type="button"><span data-i18n="member.logout">Выйти</span> <span aria-hidden="true">↗</span></button>
+        </div>
+        <article class="profile-card member-card" id="member-profile"></article>
+        <div class="member-map-access">
+          <button class="button button-outline" id="member-map-open" type="button" aria-haspopup="dialog" aria-controls="map-dialog"><span data-i18n="member.openMap">Открыть интерактивную карту</span><span aria-hidden="true">↗</span></button>
+        </div>
+        <dialog class="map-dialog" id="map-dialog" aria-labelledby="map-dialog-title">
+          <div class="map-dialog-panel">
+            <header class="map-dialog-header">
+              <h2 id="map-dialog-title" data-i18n="map.modalTitle">Hazelwood · интерактивная карта</h2>
+              <button class="map-dialog-close" id="map-dialog-close" type="button" aria-label="Закрыть карту" data-i18n-aria="map.close">×</button>
+            </header>
+            <iframe id="interactive-map" title="Интерактивная карта мира Hazelwood" data-i18n-title="map.iframeTitle" loading="lazy" referrerpolicy="same-origin" allow="fullscreen"></iframe>
+          </div>
+        </dialog>
+        <section class="admin-panel" id="admin-panel" aria-labelledby="admin-title" hidden>
+          <div class="admin-heading"><div><p class="eyebrow"><span class="eyebrow-rule"></span><span data-i18n="admin.eyebrow">УПРАВЛЕНИЕ</span></p><h3 id="admin-title" data-i18n="admin.title">Администрирование</h3></div><span class="admin-label" data-i18n="admin.badge">АДМИН</span></div>
+          <div class="admin-grid">
+            <div class="admin-tool invite-tool">
+              <h4 data-i18n="admin.inviteTitle">Приглашения</h4>
+              <p class="admin-meta" data-i18n="admin.inviteMeta">ОДНОРАЗОВЫЙ · ПОКАЗ ОДИН РАЗ</p>
+              <button class="button button-dark" id="create-invite" type="button"><span data-i18n="admin.inviteButton">Создать код</span><span aria-hidden="true">＋</span></button>
+              <div class="invite-result" id="invite-result" hidden>
+                <code id="invite-code-result"></code>
+                <button class="copy-button" id="copy-invite" type="button" data-i18n="admin.copy">Копировать</button>
+              </div>
+              <p class="admin-message" id="invite-message" role="status" aria-live="polite"></p>
+            </div>
+            <div class="admin-tool player-tool">
+              <h4 data-i18n="admin.playersTitle">Игроки</h4>
+              <form class="admin-search" id="admin-search-form"><label class="visually-hidden" for="admin-search" data-i18n="admin.searchLabel">Поиск игрока</label><input id="admin-search" name="search" autocomplete="off" placeholder="Поиск по нику" data-i18n-placeholder="admin.searchPlaceholder"><button class="button button-dark" type="submit" data-i18n="admin.searchButton">Найти</button></form>
+              <div class="admin-players" id="admin-players" aria-live="polite"><p class="admin-message" data-i18n="admin.playersHint">Введите ник для поиска.</p></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner"><a class="footer-brand" href="#top">hazelwood<span>.</span></a><p data-i18n="footer">JAVA EDITION · 26.3</p><span class="footer-mark" aria-hidden="true">HW · 2026</span></div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
