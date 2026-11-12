@@ -21,16 +21,19 @@ import (
 )
 
 type config struct {
-	addr         string
-	dbPath       string
-	rconAddress  string
-	rconPassword string
-	adminUser    string
-	adminPass    string
-	publicOrigin string
-	webDir       string
-	mapURL       string
-	cookieSecure bool
+	addr                string
+	dbPath              string
+	rconAddress         string
+	rconPassword        string
+	minecraftAuthSecret string
+	adminUser           string
+	adminPass           string
+	publicOrigin        string
+	webDir              string
+	mapURL              string
+	minecraftDataDir    string
+	serverAddress       string
+	cookieSecure        bool
 }
 
 func main() {
@@ -60,13 +63,16 @@ func main() {
 		mapPreviewPath = filepath.Join(filepath.Dir(cfg.dbPath), "map-preview.png")
 	}
 	backend, err := app.New(database, rcon.New(cfg.rconAddress, cfg.rconPassword), app.Options{
-		CookieSecure:   cfg.cookieSecure,
-		PublicOrigin:   cfg.publicOrigin,
-		WebDir:         cfg.webDir,
-		MapURL:         cfg.mapURL,
-		MapPreviewPath: mapPreviewPath,
-		AdminUser:      cfg.adminUser,
-		AdminPass:      cfg.adminPass,
+		CookieSecure:        cfg.cookieSecure,
+		PublicOrigin:        cfg.publicOrigin,
+		WebDir:              cfg.webDir,
+		MapURL:              cfg.mapURL,
+		MapPreviewPath:      mapPreviewPath,
+		MinecraftDataDir:    cfg.minecraftDataDir,
+		ServerAddress:       cfg.serverAddress,
+		AdminUser:           cfg.adminUser,
+		AdminPass:           cfg.adminPass,
+		MinecraftAuthSecret: cfg.minecraftAuthSecret,
 	}, logger)
 	if err != nil {
 		logger.Fatalf("initialize application: %v", err)
@@ -125,6 +131,10 @@ func loadConfig() (config, error) {
 	if err != nil {
 		return config{}, err
 	}
+	minecraftAuthSecret, err := readMinecraftAuthSecret()
+	if err != nil {
+		return config{}, err
+	}
 	rconPortText := envOr("RCON_PORT", "25575")
 	rconPort, err := strconv.Atoi(rconPortText)
 	if err != nil || rconPort < 1 || rconPort > 65535 {
@@ -138,16 +148,19 @@ func loadConfig() (config, error) {
 		}
 	}
 	return config{
-		addr:         envOr("HTTP_ADDR", ":8080"),
-		dbPath:       envOr("DB_PATH", "/data/hazelwood.sqlite"),
-		rconAddress:  net.JoinHostPort(rconHost, strconv.Itoa(rconPort)),
-		rconPassword: rconPassword,
-		adminUser:    adminUser,
-		adminPass:    adminPass,
-		publicOrigin: envOr("PUBLIC_ORIGIN", "https://hazelwood-card.inne.space"),
-		webDir:       envOr("WEB_DIR", "./web"),
-		mapURL:       envOr("BLUEMAP_URL", "http://minecraft-server:8100"),
-		cookieSecure: cookieSecure,
+		addr:                envOr("HTTP_ADDR", ":8080"),
+		dbPath:              envOr("DB_PATH", "/data/hazelwood.sqlite"),
+		rconAddress:         net.JoinHostPort(rconHost, strconv.Itoa(rconPort)),
+		rconPassword:        rconPassword,
+		minecraftAuthSecret: minecraftAuthSecret,
+		adminUser:           adminUser,
+		adminPass:           adminPass,
+		publicOrigin:        envOr("PUBLIC_ORIGIN", "https://hazelwood-card.inne.space"),
+		webDir:              envOr("WEB_DIR", "./web"),
+		mapURL:              envOr("BLUEMAP_URL", "http://minecraft-server:8100"),
+		minecraftDataDir:    envOr("MINECRAFT_DATA_DIR", "/minecraft-data"),
+		serverAddress:       envOr("MINECRAFT_SERVER_ADDRESS", "hazelwood.inne.space"),
+		cookieSecure:        cookieSecure,
 	}, nil
 }
 
@@ -168,6 +181,25 @@ func readRCONPassword() (string, error) {
 		return password, nil
 	}
 	return "", errors.New("RCON password required: provide secret file at RCON_PASSWORD_FILE (default /run/secrets/rcon_password) or RCON_PASSWORD for local development")
+}
+
+func readMinecraftAuthSecret() (string, error) {
+	file := envOr("MINECRAFT_AUTH_SECRET_FILE", "/run/secrets/minecraft_auth_secret")
+	if file != "" {
+		contents, err := os.ReadFile(file)
+		if err == nil {
+			secret := strings.TrimSpace(string(contents))
+			if secret != "" {
+				return secret, nil
+			}
+		} else if !errors.Is(err, os.ErrNotExist) && strings.TrimSpace(os.Getenv("MINECRAFT_AUTH_SECRET")) == "" {
+			return "", fmt.Errorf("read MINECRAFT_AUTH_SECRET_FILE %q: %w", file, err)
+		}
+	}
+	if secret := os.Getenv("MINECRAFT_AUTH_SECRET"); strings.TrimSpace(secret) != "" {
+		return secret, nil
+	}
+	return "", nil
 }
 
 func requiredEnv(name string) (string, error) {

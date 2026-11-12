@@ -2,6 +2,8 @@ package app
 
 import (
 	"context"
+	"crypto/sha256"
+	"crypto/subtle"
 	"errors"
 	"fmt"
 	"net/http"
@@ -25,14 +27,89 @@ type credentials struct {
 	InviteCode string `json:"inviteCode"`
 }
 
+type minecraftAuthCredentials struct {
+	Username string  `json:"username"`
+	Password *string `json:"password,omitempty"`
+}
+
+type minecraftAuthResult struct {
+	Registered    bool  `json:"registered"`
+	Banned        bool  `json:"banned"`
+	PasswordValid *bool `json:"passwordValid,omitempty"`
+}
+
+func (a *App) handleMinecraftAuth(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	if !a.hasMinecraftAuthSecret || !validMinecraftAuthToken(r.Header.Get("Authorization"), a.minecraftAuthSecret) {
+		writeError(w, http.StatusUnauthorized, "unauthorized")
+		return
+	}
+	if r.Method != http.MethodPost {
+		w.Header().Set("Allow", http.MethodPost)
+		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	var input minecraftAuthCredentials
+	if err := a.decodeJSON(w, r, &input); err != nil {
+		writeError(w, http.StatusBadRequest, "invalid request")
+		return
+	}
+	input.Username = strings.TrimSpace(input.Username)
+	if !validUsername(input.Username) || (input.Password != nil && (*input.Password == "" || len(*input.Password) > 1024)) {
+		writeError(w, http.StatusBadRequest, "invalid request")
+		return
+	}
+
+	row, ok, err := a.db.QueryOne(`SELECT password_salt,password_hash,banned_at FROM users
+		WHERE username=? COLLATE NOCASE`, input.Username)
+	if err != nil {
+		a.logger.Printf("check Minecraft account: %v", err)
+		writeError(w, http.StatusInternalServerError, "could not check account")
+		return
+	}
+
+	result := minecraftAuthResult{Registered: ok}
+	if ok {
+		result.Banned = row[2] != nil
+	}
+	if input.Password != nil {
+		valid := ok && verifyPassword(*input.Password, valueString(row[0]), valueString(row[1]))
+		result.PasswordValid = &valid
+	}
+	writeJSON(w, http.StatusOK, result)
+}
+
+func validMinecraftAuthToken(authorization string, expected [sha256.Size]byte) bool {
+	scheme, token, ok := strings.Cut(authorization, " ")
+	if !ok || !strings.EqualFold(scheme, "Bearer") || token == "" || strings.ContainsAny(token, " \t\r\n") {
+		return false
+	}
+	provided := sha256.Sum256([]byte(token))
+	return subtle.ConstantTimeCompare(provided[:], expected[:]) == 1
+}
+
 func (a *App) handleStatus(w http.ResponseWriter, r *http.Request) {
-	writeJSON(w, http.StatusOK, a.statusSnapshot())
+	status := a.statusSnapshot()
+	status.Players = visibleStatusPlayers(status.Players)
+	row, ok, err := a.db.QueryOne("SELECT COUNT(*) FROM users WHERE username <> ? COLLATE NOCASE", hiddenPlayerUsername)
+	if err != nil {
+		a.logger.Printf("count registered players: %v", err)
+	} else if ok {
+		count := int(valueInt(row[0]))
+		status.RegisteredPlayers = &count
+	}
+	writeJSON(w, http.StatusOK, status)
 }
 
 func (a *App) handlePlayer(w http.ResponseWriter, r *http.Request) {
 	username := r.PathValue("username")
 	if !validUsername(username) {
 		writeError(w, http.StatusBadRequest, "invalid Minecraft nickname")
+		return
+	}
+	if isHiddenPlayer(username) {
+		writeError(w, http.StatusNotFound, "player not found")
 		return
 	}
 	row, ok, err := a.db.QueryOne(`SELECT username,created_at,last_seen_at FROM users
@@ -187,8 +264,8 @@ func (a *App) handleAdminPlayers(w http.ResponseWriter, r *http.Request) {
 	search = strings.ReplaceAll(search, "%", "!%")
 	search = strings.ReplaceAll(search, "_", "!_")
 	rows, err := a.db.Query(`SELECT username,created_at,last_seen_at,banned_at,ban_reason FROM users
-		WHERE role='player' AND username LIKE '%' || ? || '%' ESCAPE '!'
-		ORDER BY username COLLATE NOCASE LIMIT 100`, search)
+		WHERE role='player' AND username <> ? COLLATE NOCASE AND username LIKE '%' || ? || '%' ESCAPE '!'
+		ORDER BY username COLLATE NOCASE LIMIT 100`, hiddenPlayerUsername, search)
 	if err != nil {
 		a.logger.Printf("list admin players: %v", err)
 		writeError(w, http.StatusInternalServerError, "could not load players")

@@ -1,0 +1,22 @@
+name: HazelwoodAuth
+version: 1.0.2
+main: space.inne.hazelwood.auth.HazelwoodAuth
+api-version: '26.3'
+description: Uses Hazelwood website accounts for Minecraft authentication
+depend: [CDisc]
+softdepend: [LuckPerms, SkinsRestorer]
+commands:
+  login:
+    description: Open the Hazelwood sign-in dialog
+    usage: /login
+    aliases: [l]
+  register:
+    description: Create your Hazelwood account on the website
+    usage: /register
+    aliases: [reg]
+  hwskin:
+    description: Apply a skin requested by the Hazelwood portal
+    usage: /hwskin <requestId>
+  hwdisc:
+    description: Deliver a music disc requested by the Hazelwood portal
+    usage: /hwdisc <requestId>

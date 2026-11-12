@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "status": "planned",
+  "minecraftVersion": "26.3",
+  "downloads": {
+    "linux": { "directory": "downloads/linux/", "files": [] },
+    "macos": { "directory": "downloads/macos/", "files": [] },
+    "windows": { "directory": "downloads/windows/", "files": [] }
+  },
+  "mods": [],
+  "configs": [],
+  "keybindings": [],
+  "serverIntegrationsToVerify": [
+    {
+      "feature": "simple_voice_chat",
+      "serverPluginVersion": "2.6.24",
+      "clientModVersion": null,
+      "tested": false
+    },
+    {
+      "feature": "emotecraft",
+      "serverPluginVersion": "3.3.0-a.build.150",
+      "clientModVersion": null,
+      "tested": false
+    }
+  ]
+}

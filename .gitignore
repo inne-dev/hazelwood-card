@@ -2,3 +2,5 @@
 /data/
 /bin/
 /tmp/
+/minecraft-auth-plugin/.gradle/
+/minecraft-auth-plugin/build/

@@ -5,45 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hazelwood — игроки онлайн, BlueMap и карточки жителей закрытого Minecraft-сервера." id="page-description">
     <title>Hazelwood — мир Minecraft</title>
-    <link rel="icon" type="image/png" href="/assets/brand/hazelwood-favicon.png">
+    <link rel="icon" type="image/png" href="/api/seasonal-icon">
     <link rel="preload" as="image" href="/assets/ambient/day-reef.webp" fetchpriority="low">
     <link rel="preload" as="image" href="/assets/ambient/day-village.webp" fetchpriority="low">
     <link rel="preload" as="image" href="/assets/ambient/day-temple.webp" fetchpriority="low">
     <link rel="preload" as="image" href="/assets/ambient/night-forest.webp" fetchpriority="low">
     <link rel="preload" as="image" href="/assets/ambient/night-swamp.webp" fetchpriority="low">
     <link rel="preload" as="image" href="/assets/ambient/night-sanctuary.webp" fetchpriority="low">
-    <link rel="stylesheet" href="/styles.css?v=vines-2-map-preview-1-header-physics-2-header-wind-2-ambient-rays-3-map-angle-2-language-menu-1-map-angle-3-scene-blend-1-map-plane-2-header-glass-2-ui-cleanup-2-vines-top-2-header-shadow-1-scene-no-drag-1-ambient-prerender-2-map-fit-1-render-load-1-performance-2">
-    <script src="/app.js?v=vines-3-map-preview-1-header-physics-1-header-wind-2-ambient-rays-1-language-menu-1-ui-cleanup-1-header-glass-fix-1-ui-cleanup-3-vines-top-1-register-tab-1-ambient-prerender-2-map-access-1-render-load-1-performance-3-vine-physics-2" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=portal-2-vine-wind-1-vine-tendril-12-player-head-1-flora-butterflies-1-hero-clip-1-header-address-removed-1-vine-layer-1">
+    <script src="/app.js?v=portal-6-vine-clone-4-flora-butterflies-1-left-vine-1-profile-eyebrow-removed-1-header-address-removed-1" defer></script>
   </head>
-  <body>
+  <body data-page="landing">
     <div class="ambient-light" aria-hidden="true">
       <img class="ambient-ray" data-ambient-layer="0" data-active="true" data-source="/assets/ambient/day-reef.webp" src="/assets/ambient/day-reef.webp" alt="" width="512" height="512" decoding="async">
       <img class="ambient-ray" data-ambient-layer="1" data-active="false" alt="" width="512" height="512" decoding="async">
     </div>
-    <svg class="header-vines" id="header-vines" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <g class="vine-sway vine-sway-a">
-        <path class="vine-stem" d="M82-8c-5 46 22 65 6 108-13 34 7 58 23 86 9 16 11 36 6 59"></path>
-        <path class="vine-leaf" d="M84 31 62 20l4 22 19 8zm7 47 22-15-2 24-18 12zm-7 46-23-9 7 22 20 7zm19 30 23-10-4 23-18 9z"></path>
-      </g>
-      <g class="vine-sway vine-sway-b">
-        <path class="vine-stem" d="M1008-12c18 44-11 70 8 111 18 38-6 67-20 99-7 15-7 32 1 53"></path>
-        <path class="vine-leaf" d="m1011 30 22-13-2 23-18 8zm5 48-23-14 3 24 19 10zm-13 48-21-10 4 23 18 8zm-3 42 23-13-3 24-18 9z"></path>
-      </g>
-      <g class="vine-sway vine-sway-c">
-        <path class="vine-stem" d="M1378-8c-11 39 10 61-5 95-14 31 8 58 17 85 6 18 4 39-5 64"></path>
-        <path class="vine-leaf" d="m1372 24-20-12 1 22 18 8zm6 42 21-13-4 22-18 8zm3 44-21-10 5 22 17 8zm8 42 20-12-3 23-17 8z"></path>
-      </g>
-    </svg>
+
     <a class="skip-link" href="#main" data-i18n="skip">К содержимому</a>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Hazelwood — главная" data-i18n-aria="brand.home">
-        <img class="brand-mark" src="/assets/brand/hazelwood-mark.png" alt="" width="40" height="40">
+        <img class="brand-mark" src="/api/seasonal-icon" alt="" width="40" height="40">
         <span class="brand-name">hazelwood<span class="brand-dot">.</span></span>
       </a>
       <nav class="primary-nav" aria-label="Основная навигация" data-i18n-aria="nav.label">
         <a href="#world" data-i18n="nav.server">Сервер</a>
         <a href="#map" data-i18n="nav.map">Карта</a>
-        <a href="#account" id="account-nav" data-i18n="nav.login">Войти</a>
+        <a id="landing-account-link" href="/login/" data-i18n="nav.login">Войти</a>
       </nav>
       <div class="language-control" id="language-control">
         <button class="language-trigger" id="language-trigger" type="button" aria-label="Язык сайта" data-i18n-aria="language.label" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
@@ -62,21 +49,445 @@
         </div>
       </div>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false"><span class="theme-icon" aria-hidden="true"><i></i></span><span id="theme-label">Тёмная</span></button>
-      <a class="server-address" href="https://hazelwood-card.inne.space" aria-label="Адрес сайта Hazelwood" data-i18n-aria="server.address">
-        <span class="address-status" aria-hidden="true"></span>
-        hazelwood-card.inne.space
-      </a>
     </header>
 
 
     <main id="main">
       <section class="hero shell" id="top" aria-labelledby="hero-title">
+        <svg class="header-vines" id="header-vines" aria-hidden="true" focusable="false">
+      <g class="vine-strand vine-strand--mobile-hidden" data-anchor=".40972" data-tip-x="0" transform="translate(590 0)">
+        <g class="vine-link" data-joint="1" data-rest-x="0" transform="translate(0 0)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-13" y="1" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="-12" y="0" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="2" data-rest-x="-1" transform="translate(-1 17)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="10" height="11"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="7"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="7" height="3"></rect>
+          <rect class="vine-leaf" x="15" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="6" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="-12" y="5" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="3" data-rest-x="-2" transform="translate(-2 34)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-12" y="1" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="-11" y="0" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="14" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="4" data-rest-x="-1" transform="translate(-1 51)">
+          <path class="vine-stem" d="M0 0V8H2V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="12" height="13"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="9"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="9" height="3"></rect>
+          <rect class="vine-leaf" x="17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="6" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="-11" y="5" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="5" data-rest-x="1" transform="translate(1 68)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-14" y="1" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="-13" y="0" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="13" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="6" data-rest-x="2" transform="translate(2 85)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="11" height="12"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="8"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="8" height="3"></rect>
+          <rect class="vine-leaf" x="16" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-11" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="-10" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-petal" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="-5" y="2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="7" data-rest-x="1" transform="translate(1 102)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-15" y="1" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="-14" y="0" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="-16" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="14" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-violet" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="5" y="2" width="2" height="2"></rect>
+          <rect class="vine-flower-glint" x="1" y="-2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+      </g>
+      <g class="vine-strand" data-anchor=".72917" data-tip-x="0" data-mobile-anchor=".87" transform="translate(1050 0)">
+        <g class="vine-link" data-joint="1" data-rest-x="0" transform="translate(0 0)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="12" height="13"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="9"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="9" height="3"></rect>
+          <rect class="vine-leaf" x="17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="6" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="-14" y="5" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="-16" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="2" data-rest-x="1" transform="translate(1 17)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-14" y="1" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="-13" y="0" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="11" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="3" data-rest-x="2" transform="translate(2 34)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="11" height="12"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="8"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="8" height="3"></rect>
+          <rect class="vine-leaf" x="16" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="6" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="-13" y="5" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="4" data-rest-x="1" transform="translate(1 51)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-15" y="1" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="-14" y="0" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="-16" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="5" data-rest-x="0" transform="translate(0 68)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="6" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="-14" y="5" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="-16" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="6" data-rest-x="-1" transform="translate(-1 85)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-18" y="1" width="12" height="13"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="9"></rect>
+          <rect class="vine-leaf-light" x="-17" y="0" width="9" height="3"></rect>
+          <rect class="vine-leaf" x="-19" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-petal" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="-5" y="2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="7" data-rest-x="-2" transform="translate(-2 102)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="6" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="-11" y="5" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="8" data-rest-x="-1" transform="translate(-1 119)">
+          <path class="vine-stem" d="M0 0V8H2V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-16" y="1" width="10" height="11"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="7"></rect>
+          <rect class="vine-leaf-light" x="-15" y="0" width="7" height="3"></rect>
+          <rect class="vine-leaf" x="-17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="13" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="9" data-rest-x="1" transform="translate(1 136)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-11" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="-10" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-violet" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="5" y="2" width="2" height="2"></rect>
+          <rect class="vine-flower-glint" x="1" y="-2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="10" data-rest-x="2" transform="translate(2 153)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-16" y="1" width="10" height="11"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="7"></rect>
+          <rect class="vine-leaf-light" x="-15" y="0" width="7" height="3"></rect>
+          <rect class="vine-leaf" x="-17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="11" data-rest-x="1" transform="translate(1 170)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="11" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="6" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="-12" y="5" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-petal" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="-5" y="2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+      </g>
+      <g class="vine-strand vine-strand--mobile-hidden" data-anchor=".95139" data-tip-x="0" transform="translate(1390 0)">
+        <g class="vine-link" data-joint="1" data-rest-x="0" transform="translate(0 0)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-15" y="1" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="-14" y="0" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="-16" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="13" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="2" data-rest-x="-1" transform="translate(-1 17)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-11" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="-10" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="3" data-rest-x="-2" transform="translate(-2 34)">
+          <path class="vine-stem" d="M0 0V8H2V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-18" y="1" width="12" height="13"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="9"></rect>
+          <rect class="vine-leaf-light" x="-17" y="0" width="9" height="3"></rect>
+          <rect class="vine-leaf" x="-19" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="9" height="10"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="6"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="6" height="3"></rect>
+          <rect class="vine-leaf" x="14" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="4" data-rest-x="0" transform="translate(0 51)">
+          <path class="vine-stem" d="M0 0V8H2V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-13" y="6" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="-12" y="5" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="5" data-rest-x="2" transform="translate(2 68)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-16" y="1" width="10" height="11"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="7"></rect>
+          <rect class="vine-leaf-light" x="-15" y="0" width="7" height="3"></rect>
+          <rect class="vine-leaf" x="-17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="11" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="6" data-rest-x="1" transform="translate(1 85)">
+          <path class="vine-stem" d="M0 0V8H-2V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-14" y="6" width="8" height="9"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="5"></rect>
+          <rect class="vine-leaf-light" x="-13" y="5" width="5" height="3"></rect>
+          <rect class="vine-leaf" x="-15" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-violet" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-violet" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="5" y="2" width="2" height="2"></rect>
+          <rect class="vine-flower-glint" x="1" y="-2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="7" data-rest-x="-1" transform="translate(-1 102)">
+          <path class="vine-stem" d="M0 0V8H-1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-16" y="1" width="10" height="11"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="7"></rect>
+          <rect class="vine-leaf-light" x="-15" y="0" width="7" height="3"></rect>
+          <rect class="vine-leaf" x="-17" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="10" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="8" data-rest-x="-2" transform="translate(-2 119)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H4 M0 13H-4"></path>
+          <rect class="vine-leaf" x="6" y="1" width="6" height="7"></rect>
+          <rect class="vine-leaf-shade" x="4" y="3" width="4" height="3"></rect>
+          <rect class="vine-leaf-light" x="8" y="0" width="3" height="3"></rect>
+          <rect class="vine-leaf" x="11" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-11" y="6" width="5" height="6"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="8" width="4" height="2"></rect>
+          <rect class="vine-leaf-light" x="-10" y="5" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="-12" y="9" width="2" height="3"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+        <g class="vine-link" data-joint="9" data-rest-x="-1" transform="translate(-1 136)">
+          <path class="vine-stem" d="M0 0V8H1V17"></path>
+          <path class="vine-branch" d="M0 6H-4 M0 13H4"></path>
+          <rect class="vine-leaf" x="-18" y="1" width="12" height="13"></rect>
+          <rect class="vine-leaf-shade" x="-8" y="3" width="4" height="9"></rect>
+          <rect class="vine-leaf-light" x="-17" y="0" width="9" height="3"></rect>
+          <rect class="vine-leaf" x="-19" y="4" width="2" height="3"></rect>
+          <rect class="vine-leaf" x="6" y="6" width="7" height="8"></rect>
+          <rect class="vine-leaf-shade" x="4" y="8" width="4" height="4"></rect>
+          <rect class="vine-leaf-light" x="8" y="5" width="4" height="3"></rect>
+          <rect class="vine-leaf" x="12" y="9" width="2" height="3"></rect>
+          <rect class="vine-flower-petal" x="-5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="-3" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="5" y="2" width="5" height="5"></rect>
+          <rect class="vine-flower-petal" x="0" y="7" width="5" height="5"></rect>
+          <rect class="vine-flower-center" x="-1" y="2" width="4" height="4"></rect>
+          <rect class="vine-flower-glint" x="-5" y="2" width="2" height="2"></rect>
+          <rect class="vine-grab" x="-22" y="0" width="44" height="17"></rect>
+        </g>
+      </g>
+    </svg>
         <div class="hero-copy">
-          <p class="eyebrow"><span class="status-cube" aria-hidden="true"></span>HAZELWOOD · JAVA SERVER</p>
-          <h1 id="hero-title"><span class="hero-line" data-i18n="hero.line1">HAZELWOOD</span><br><span class="hero-line" data-i18n="hero.line2">МИР / 01</span><br><span data-i18n="hero.line3">JAVA EDITION</span></h1>
-          <p class="hero-intro" data-i18n="hero.intro">JAVA · 26.3</p>
-          <a class="button button-light" href="#world"><span data-i18n="hero.cta">Статус сервера</span><span aria-hidden="true">↘</span></a>
-          <p class="hero-motd"><span class="motd-dot" aria-hidden="true"></span><span data-i18n="hero.motd">WHITELIST · INVITE ONLY</span></p>
+          <h1 id="hero-title" data-i18n="hero.title">Мир, который мы строим вместе.</h1>
+          <p class="hero-intro" data-i18n="hero.intro">Строй свой дом, исследуй новые места и встречайся с друзьями в Minecraft.</p>
+          <p class="hero-registered" id="registered-players" aria-live="polite" hidden></p>
+          <a class="button button-light" id="hero-register-link" href="/register/"><span data-i18n="account.registerTab">Регистрация</span><span aria-hidden="true">↘</span></a>
+          <div class="hero-flora" aria-hidden="true">
+            <span class="flora-anchor flora-fern" data-flora>
+              <svg class="flora-sprite" viewBox="0 0 32 36" focusable="false" shape-rendering="crispEdges">
+                <path class="flora-stem" d="M15 36V10h2v26zM7 30V18h2v12zM24 30V16h2v14z"/>
+                <path class="flora-leaf" d="M13 5h6v4h-2v5h-2V9h-2zM7 12h6v3h2v3h-6v-3H7zM19 11h6v3h-2v3h-6v-3h2zM2 20h5v3h6v3H5v-3H2zM19 19h7v-3h4v6h-4v3h-7zM7 27h8v4H9v-2H7zM17 28h9v3h-4v3h-5z"/>
+                <path class="flora-light" d="M13 5h3v4h-3zM7 12h5v3H7zM19 11h5v3h-5zM2 20h5v3H2zM26 16h4v3h-4zM7 27h5v2H7zM22 28h4v3h-4z"/>
+              </svg>
+            </span>
+            <span class="flora-anchor flora-grass" data-flora>
+              <svg class="flora-sprite" viewBox="0 0 24 24" focusable="false" shape-rendering="crispEdges">
+                <path class="flora-stem" d="M10 24V8h3v16zM5 24V15H2V9h3v6h3v9zM15 24V14h3V7h3v10h-3v7z"/>
+                <path class="flora-leaf" d="M9 4h4v11h-2V8H9zM1 11h4v8h3v5H5v-5H1zM19 3h3v11h-4v4h-3v-6h4z"/>
+                <path class="flora-light" d="M9 4h2v8H9zM1 11h2v6H1zM19 3h2v8h-2z"/>
+              </svg>
+            </span>
+            <span class="flora-anchor flora-flowers" data-flora>
+              <svg class="flora-sprite" viewBox="0 0 28 32" focusable="false" shape-rendering="crispEdges">
+                <path class="flora-stem" d="M8 32V9h2v23zM21 32V19h2v13z"/>
+                <path class="flora-leaf" d="M2 19h5v3h3v4H5v-3H2zM11 15h6v4h-3v3h-4v-4h1zM15 26h6v4h-4v-2h-2zM23 23h5v4h-3v3h-3v-5h1z"/>
+                <path class="flora-petal" d="M6 2h6v3h3v6h-3v3H6v-3H3V5h3zM20 13h4v2h2v4h-2v2h-4v-2h-2v-4h2z"/>
+                <path class="flora-center" d="M7 6h4v4H7zM21 16h2v2h-2z"/>
+                <path class="flora-light" d="M2 19h4v3H2zM11 15h6v2h-6zM25 23h3v2h-3z"/>
+              </svg>
+            </span>
+          </div>
         </div>
         <div class="hero-carousel" id="hero-carousel" data-scene-carousel data-theme="light" role="region" aria-label="Сцены мира Hazelwood" data-i18n-aria="scene.carousel">
           <div class="hero-scene-images" aria-hidden="true">
@@ -103,13 +514,11 @@
             </div>
           </div>
         </div>
-        <div class="hero-stamp" aria-hidden="true"><span>HW</span><span>JAVA</span></div>
       </section>
 
       <section class="world-section shell section-space" id="world" aria-labelledby="world-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="world.eyebrow">МИР HAZELWOOD</span></p>
             <h2 id="world-title" data-i18n="world.title">Активность</h2>
           </div>
         </div>
@@ -121,11 +530,12 @@
               <span class="status-pill status-loading" id="server-state"><span class="state-dot"></span><span id="server-state-text">Проверяем</span></span>
             </div>
             <h3 id="presence-title" class="visually-hidden" data-i18n="server.title">Состояние сервера</h3>
-            <div class="presence-count">
+            <div class="presence-count" id="presence-count">
               <span class="presence-number" id="online-count" aria-live="polite">—</span>
               <span class="presence-total">/ <span id="max-players">—</span></span>
               <span class="presence-label" data-i18n="server.playersLabel">игроков в мире</span>
             </div>
+            <p class="presence-unavailable" id="server-unavailable" role="status" hidden>Сервер сейчас недоступен.</p>
             <div class="player-presence">
               <ul class="online-list" id="online-players" aria-live="polite" aria-label="Игроки онлайн" data-i18n-aria="server.onlineList">
                 <li class="inline-skeleton" aria-hidden="true"></li>
@@ -145,87 +555,34 @@
             </div>
           </article>
         </div>
+        <section class="leaderboard-panel panel" aria-labelledby="leaderboard-title">
+          <div class="leaderboard-heading">
+            <div>
+              <h3 id="leaderboard-title" data-i18n="leaderboard.title">Рейтинг игроков</h3>
+            </div>
+            <p class="leaderboard-state" id="leaderboard-state" role="status" aria-live="polite" data-i18n="leaderboard.loading">Загружаем рейтинг…</p>
+          </div>
+          <div class="leaderboard-table-wrap" id="leaderboard-table-wrap" hidden>
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th class="leaderboard-rank" scope="col" data-i18n="leaderboard.rank">Место</th>
+                  <th scope="col" data-i18n="leaderboard.player">Игрок</th>
+                  <th class="leaderboard-number" scope="col" data-i18n="leaderboard.playtime">Время в игре</th>
+                  <th class="leaderboard-number" scope="col" data-i18n="leaderboard.advancements">Достижения</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard-rows"></tbody>
+            </table>
+          </div>
+        </section>
         <div class="status-error" id="status-error" role="status" hidden></div>
       </section>
 
-      <section class="account-section" id="account" aria-labelledby="account-title">
-        <div class="account-shell shell">
-          <h2 id="account-title" class="visually-hidden" data-i18n="account.title">Вход</h2>
-
-          <div class="account-workspace">
-            <div class="account-tabs" role="tablist" aria-label="Действия с аккаунтом" data-i18n-aria="account.tabsLabel">
-              <button class="account-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="login-pane" data-i18n="account.loginTab">Войти</button>
-              <button class="account-tab" id="tab-register" type="button" role="tab" aria-selected="false" aria-controls="register-pane" data-i18n="account.registerTab">Регистрация</button>
-            </div>
-            <div class="account-pane" id="login-pane" role="tabpanel" aria-labelledby="tab-login">
-              <form class="auth-form" id="login-form">
-                <label for="login-username" data-i18n="account.nickname">Игровой ник</label>
-                <input id="login-username" name="username" autocomplete="username" spellcheck="false" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Твой ник в Minecraft" data-i18n-placeholder="account.nicknamePlaceholder">
-                <label for="login-password" data-i18n="account.password">Пароль</label>
-                <input id="login-password" name="password" type="password" autocomplete="current-password" required>
-                <button class="button button-light button-wide" type="submit"><span data-i18n="account.loginSubmit">Войти в Hazelwood</span><span aria-hidden="true">→</span></button>
-              </form>
-            </div>
-            <div class="account-pane" id="register-pane" role="tabpanel" aria-labelledby="tab-register" hidden>
-              <form class="auth-form" id="register-form">
-                <label for="register-username" data-i18n="account.nickname">Игровой ник</label>
-                <input id="register-username" name="username" autocomplete="username" spellcheck="false" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Твой ник в Minecraft" data-i18n-placeholder="account.nicknamePlaceholder">
-                <label for="register-password" data-i18n="account.password">Пароль</label>
-                <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" required>
-                <p class="form-hint form-hint-dark" data-i18n="account.passwordHint">Не короче 12 символов.</p>
-                <label for="invite-code" data-i18n="account.inviteCode">Код приглашения</label>
-                <input id="invite-code" name="inviteCode" autocomplete="off" autocapitalize="characters" required>
-                <button class="button button-light button-wide" type="submit"><span data-i18n="account.registerSubmit">Создать карточку</span><span aria-hidden="true">→</span></button>
-              </form>
-            </div>
-            <p class="form-message" id="auth-message" role="status" aria-live="polite" hidden></p>
-          </div>
-        </div>
-      </section>
-
-      <section class="member-section shell section-space" id="member" aria-labelledby="member-title" hidden>
-        <div class="section-heading section-heading-inline">
-          <div><p class="eyebrow"><span class="eyebrow-rule"></span><span data-i18n="member.eyebrow">ТВОЯ КАРТОЧКА</span></p><h2 id="member-title" data-i18n="member.title">Житель Hazelwood</h2></div>
-          <button class="button button-outline" id="logout-button" type="button"><span data-i18n="member.logout">Выйти</span> <span aria-hidden="true">↗</span></button>
-        </div>
-        <article class="profile-card member-card" id="member-profile"></article>
-        <div class="member-map-access">
-          <button class="button button-outline" id="member-map-open" type="button" aria-haspopup="dialog" aria-controls="map-dialog"><span data-i18n="member.openMap">Открыть интерактивную карту</span><span aria-hidden="true">↗</span></button>
-        </div>
-        <dialog class="map-dialog" id="map-dialog" aria-labelledby="map-dialog-title">
-          <div class="map-dialog-panel">
-            <header class="map-dialog-header">
-              <h2 id="map-dialog-title" data-i18n="map.modalTitle">Hazelwood · интерактивная карта</h2>
-              <button class="map-dialog-close" id="map-dialog-close" type="button" aria-label="Закрыть карту" data-i18n-aria="map.close">×</button>
-            </header>
-            <iframe id="interactive-map" title="Интерактивная карта мира Hazelwood" data-i18n-title="map.iframeTitle" loading="lazy" referrerpolicy="same-origin" allow="fullscreen"></iframe>
-          </div>
-        </dialog>
-        <section class="admin-panel" id="admin-panel" aria-labelledby="admin-title" hidden>
-          <div class="admin-heading"><div><p class="eyebrow"><span class="eyebrow-rule"></span><span data-i18n="admin.eyebrow">УПРАВЛЕНИЕ</span></p><h3 id="admin-title" data-i18n="admin.title">Администрирование</h3></div><span class="admin-label" data-i18n="admin.badge">АДМИН</span></div>
-          <div class="admin-grid">
-            <div class="admin-tool invite-tool">
-              <h4 data-i18n="admin.inviteTitle">Приглашения</h4>
-              <p class="admin-meta" data-i18n="admin.inviteMeta">ОДНОРАЗОВЫЙ · ПОКАЗ ОДИН РАЗ</p>
-              <button class="button button-dark" id="create-invite" type="button"><span data-i18n="admin.inviteButton">Создать код</span><span aria-hidden="true">＋</span></button>
-              <div class="invite-result" id="invite-result" hidden>
-                <code id="invite-code-result"></code>
-                <button class="copy-button" id="copy-invite" type="button" data-i18n="admin.copy">Копировать</button>
-              </div>
-              <p class="admin-message" id="invite-message" role="status" aria-live="polite"></p>
-            </div>
-            <div class="admin-tool player-tool">
-              <h4 data-i18n="admin.playersTitle">Игроки</h4>
-              <form class="admin-search" id="admin-search-form"><label class="visually-hidden" for="admin-search" data-i18n="admin.searchLabel">Поиск игрока</label><input id="admin-search" name="search" autocomplete="off" placeholder="Поиск по нику" data-i18n-placeholder="admin.searchPlaceholder"><button class="button button-dark" type="submit" data-i18n="admin.searchButton">Найти</button></form>
-              <div class="admin-players" id="admin-players" aria-live="polite"><p class="admin-message" data-i18n="admin.playersHint">Введите ник для поиска.</p></div>
-            </div>
-          </div>
-        </section>
-      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="shell footer-inner"><a class="footer-brand" href="#top">hazelwood<span>.</span></a><p data-i18n="footer">JAVA EDITION · 26.3</p><span class="footer-mark" aria-hidden="true">HW · 2026</span></div>
+      <div class="shell footer-inner"><a class="footer-brand" href="#top">hazelwood<span>.</span></a><p data-i18n="footer">JAVA EDITION · 26.3</p></div>
     </footer>
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   </body>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Вход и регистрация в Hazelwood." id="page-description">
+    <title>Вход — Hazelwood</title>
+    <link rel="icon" type="image/png" href="/api/seasonal-icon">
+    <link rel="stylesheet" href="/styles.css?v=portal-3">
+    <link rel="stylesheet" href="/portal.css?v=portal-4">
+    <script src="/app.js?v=portal-6" defer></script>
+  </head>
+  <body data-page="auth">
+    <a class="skip-link" href="#main" data-i18n="skip">К содержимому</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Hazelwood — главная" data-i18n-aria="brand.home">
+        <img class="brand-mark" src="/api/seasonal-icon" alt="" width="40" height="40">
+        <span class="brand-name">hazelwood<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Основная навигация" data-i18n-aria="nav.label">
+        <a href="/" data-i18n="nav.server">Сервер</a>
+        <a href="/login/" id="nav-login" data-i18n="account.loginTab">Войти</a>
+        <a href="/register/" id="nav-register" data-i18n="account.registerTab">Регистрация</a>
+      </nav>
+      <div class="language-control" id="language-control">
+        <button class="language-trigger" id="language-trigger" type="button" aria-label="Язык сайта" data-i18n-aria="language.label" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
+          <span data-language-code>RU</span><span class="language-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="language-menu" id="language-menu" role="listbox" aria-label="Язык сайта" data-i18n-aria="language.label" hidden>
+          <button class="language-option" type="button" role="option" lang="ru" data-language="ru" aria-selected="true" tabindex="-1"><span class="language-name">Русский</span><span class="language-option-meta"><span>RU</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+          <button class="language-option" type="button" role="option" lang="uk" data-language="uk" aria-selected="false" tabindex="-1"><span class="language-name">Українська</span><span class="language-option-meta"><span>UK</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+          <button class="language-option" type="button" role="option" lang="en" data-language="en" aria-selected="false" tabindex="-1"><span class="language-name">English</span><span class="language-option-meta"><span>EN</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false"><span class="theme-icon" aria-hidden="true"><i></i></span><span id="theme-label">Тёмная</span></button>
+    </header>
+
+    <main id="main" class="auth-page shell">
+      <section class="auth-content" aria-labelledby="auth-title">
+        <p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="auth.inviteOnly">ПО ПРИГЛАШЕНИЮ</span></p>
+        <h1 id="auth-title">Войти</h1>
+        <nav class="auth-switch" aria-label="Вход или регистрация">
+          <a href="/login/" id="auth-login-link" data-i18n="account.loginTab">Войти</a>
+          <a href="/register/" id="auth-register-link" data-i18n="account.registerTab">Регистрация</a>
+        </nav>
+        <form class="auth-form auth-page-form" id="auth-form">
+          <label for="auth-username" data-i18n="account.nickname">Игровой ник</label>
+          <input id="auth-username" name="username" autocomplete="username" spellcheck="false" maxlength="16" required pattern="[A-Za-z0-9_]{3,16}" placeholder="Твой ник в Minecraft" data-i18n-placeholder="account.nicknamePlaceholder">
+          <label for="auth-password" data-i18n="account.password">Пароль</label>
+          <input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+          <p class="form-hint auth-password-hint" id="auth-password-hint" hidden data-i18n="account.passwordHint">Не короче 12 символов.</p>
+          <div class="auth-invite-field" id="auth-invite-field" hidden>
+            <label for="auth-invite" data-i18n="account.inviteCode">Код приглашения</label>
+            <input id="auth-invite" name="inviteCode" autocomplete="off" autocapitalize="characters" disabled required>
+          </div>
+          <button class="button button-light button-wide" id="auth-submit" type="submit"><span data-i18n="account.loginSubmit">Войти в Hazelwood</span><span aria-hidden="true">→</span></button>
+        </form>
+        <p class="form-message" id="auth-message" role="status" aria-live="polite" hidden></p>
+        <p class="auth-footnote" data-i18n="account.inviteRule">Один код — одна регистрация.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><a class="footer-brand" href="/">hazelwood<span>.</span></a><p data-i18n="footer">JAVA EDITION · 26.3</p></div></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

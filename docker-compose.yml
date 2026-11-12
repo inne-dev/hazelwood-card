@@ -11,15 +11,20 @@ services:
       RCON_HOST: minecraft-server
       RCON_PORT: 25575
       RCON_PASSWORD_FILE: /run/secrets/rcon_password
+      MINECRAFT_AUTH_SECRET_FILE: /run/secrets/minecraft_auth_secret
+      MINECRAFT_DATA_DIR: /minecraft-data
+      MINECRAFT_SERVER_ADDRESS: ${MINECRAFT_SERVER_ADDRESS:-hazelwood.inne.space}
       BLUEMAP_URL: http://minecraft-server:8100
     ports:
       - 127.0.0.1:8080:8080
     volumes:
       - hazelwood-card-data:/data
+      - ../minecraft-server/data:/minecraft-data:ro
     networks:
       - hazelwood-private
     secrets:
       - rcon_password
+      - minecraft_auth_secret
     mem_limit: 128m
     cpus: 0.50
     read_only: true
@@ -41,3 +46,5 @@ networks:
 secrets:
   rcon_password:
     file: ../minecraft-server/secrets/rcon_password
+  minecraft_auth_secret:
+    file: ../minecraft-server/secrets/minecraft_auth_secret

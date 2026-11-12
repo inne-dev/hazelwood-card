@@ -9,7 +9,7 @@ RUN CGO_ENABLED=1 GOOS=linux go build -trimpath -ldflags="-s -w" -o /out/hazelwo
 
 FROM alpine:3.23
 
-RUN apk add --no-cache ca-certificates sqlite-libs \
+RUN apk add --no-cache ca-certificates sqlite-libs ffmpeg \
     && addgroup -S app \
     && adduser -S -G app app \
     && mkdir -p /data \

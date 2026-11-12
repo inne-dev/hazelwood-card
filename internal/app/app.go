@@ -27,39 +27,55 @@ import (
 const sessionTTL = 14 * 24 * time.Hour
 
 type Options struct {
-	CookieSecure   bool
-	PublicOrigin   string
-	WebDir         string
-	MapURL         string
-	MapPreviewPath string
-	AdminUser      string
-	AdminPass      string
+	CookieSecure        bool
+	PublicOrigin        string
+	WebDir              string
+	MapURL              string
+	MapPreviewPath      string
+	MinecraftDataDir    string
+	ServerAddress       string
+	AdminUser           string
+	AdminPass           string
+	MinecraftAuthSecret string
+}
+
+type rconService interface {
+	Command(context.Context, string) (string, error)
+	List(context.Context) (rcon.Status, error)
 }
 
 type App struct {
-	db             *store.DB
-	rcon           *rcon.Client
-	logger         *log.Logger
-	cookieSecure   bool
-	publicOrigin   *url.URL
-	webDir         string
-	mapURL         *url.URL
-	mapPreviewPath string
-	mapPreview     mapPreviewCache
-	status         Status
-	statusMu       sync.RWMutex
-	rconMu         sync.Mutex
-	rconLogMu      sync.Mutex
-	lastRCONLog    time.Time
+	db                     *store.DB
+	rcon                   rconService
+	logger                 *log.Logger
+	cookieSecure           bool
+	publicOrigin           *url.URL
+	webDir                 string
+	mapURL                 *url.URL
+	mapPreviewPath         string
+	minecraftDataDir       string
+	musicDiscAudioDir      string
+	serverAddress          string
+	skinCacheMu            sync.Mutex
+	skinCache              map[string]skinTextureCacheEntry
+	minecraftAuthSecret    [sha256.Size]byte
+	hasMinecraftAuthSecret bool
+	mapPreview             mapPreviewCache
+	status                 Status
+	statusMu               sync.RWMutex
+	rconMu                 sync.Mutex
+	rconLogMu              sync.Mutex
+	lastRCONLog            time.Time
 }
 
 type Status struct {
-	Available   bool           `json:"available"`
-	Online      bool           `json:"online"`
-	OnlineCount int            `json:"onlineCount"`
-	MaxPlayers  int            `json:"maxPlayers"`
-	Players     []StatusPlayer `json:"players"`
-	CheckedAt   string         `json:"checkedAt"`
+	Available         bool           `json:"available"`
+	Online            bool           `json:"online"`
+	OnlineCount       int            `json:"onlineCount"`
+	MaxPlayers        int            `json:"maxPlayers"`
+	Players           []StatusPlayer `json:"players"`
+	RegisteredPlayers *int           `json:"registeredPlayers,omitempty"`
+	CheckedAt         string         `json:"checkedAt"`
 }
 
 type StatusPlayer struct {
@@ -94,13 +110,26 @@ func New(db *store.DB, rc *rcon.Client, opts Options, logger *log.Logger) (*App,
 	if strings.TrimSpace(opts.AdminUser) == "" || strings.TrimSpace(opts.AdminPass) == "" {
 		return nil, errors.New("ADMIN_USERNAME and ADMIN_PASSWORD are required")
 	}
+	if strings.TrimSpace(opts.MinecraftDataDir) == "" {
+		opts.MinecraftDataDir = "/minecraft-data"
+	}
+	if strings.TrimSpace(opts.ServerAddress) == "" {
+		opts.ServerAddress = "hazelwood.inne.space"
+	}
+	minecraftAuthSecret := sha256.Sum256([]byte(opts.MinecraftAuthSecret))
 	a := &App{
 		db: db, rcon: rc, logger: logger, cookieSecure: opts.CookieSecure,
 		publicOrigin: origin, webDir: filepath.Clean(opts.WebDir), mapURL: mapURL,
-		mapPreviewPath: opts.MapPreviewPath,
-		status:         Status{Players: []StatusPlayer{}},
+		mapPreviewPath: opts.MapPreviewPath, minecraftDataDir: filepath.Clean(opts.MinecraftDataDir),
+		musicDiscAudioDir: musicDiscPackDir,
+		serverAddress:     opts.ServerAddress, minecraftAuthSecret: minecraftAuthSecret,
+		hasMinecraftAuthSecret: opts.MinecraftAuthSecret != "",
+		status:                 Status{Players: []StatusPlayer{}},
 	}
 	if err := a.initSchema(); err != nil {
+		return nil, err
+	}
+	if err := a.initMusicDiscSchema(); err != nil {
 		return nil, err
 	}
 	if err := a.seedAdmin(opts.AdminUser, opts.AdminPass); err != nil {
@@ -115,12 +144,25 @@ func New(db *store.DB, rc *rcon.Client, opts Options, logger *log.Logger) (*App,
 func (a *App) Handler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /map-preview.png", a.handleMapPreview)
+	mux.HandleFunc("GET /api/seasonal-icon", a.handleSeasonalIcon)
 	mux.HandleFunc("GET /api/status", a.handleStatus)
+	mux.HandleFunc("GET /api/server-info", a.handleServerInfo)
+	mux.HandleFunc("GET /api/leaderboard", a.handleLeaderboard)
+	mux.HandleFunc("GET /api/players", a.handlePlayers)
+	mux.HandleFunc("GET /api/players/{username}/details", a.handlePlayerDetails)
+	mux.HandleFunc("GET /api/players/{username}/head.png", a.handlePlayerHead)
+	mux.HandleFunc("GET /api/players/{username}/skin.png", a.handlePlayerSkin)
 	mux.HandleFunc("GET /api/players/{username}", a.handlePlayer)
 	mux.HandleFunc("POST /api/register", a.handleRegister)
 	mux.HandleFunc("POST /api/login", a.handleLogin)
+	mux.HandleFunc("/internal/minecraft/auth", a.handleMinecraftAuth)
 	mux.HandleFunc("POST /api/logout", a.handleLogout)
 	mux.HandleFunc("GET /api/me", a.handleMe)
+	mux.HandleFunc("POST /api/me/skin", a.handleRequestSkinChange)
+	mux.HandleFunc("GET /api/me/skin/requests/{id}", a.handleSkinRequestStatus)
+	mux.HandleFunc("GET /internal/minecraft/skin-requests/{id}", a.handleMinecraftSkinRequest)
+	mux.HandleFunc("POST /internal/minecraft/skin-requests/{id}/result", a.handleMinecraftSkinResult)
+	a.registerMusicDiscRoutes(mux)
 	mux.HandleFunc("POST /api/admin/invites", a.handleCreateInvite)
 	mux.HandleFunc("GET /api/admin/players", a.handleAdminPlayers)
 	mux.HandleFunc("POST /api/admin/players/{username}/ban", a.handleBan)
@@ -155,6 +197,50 @@ func (a *App) Handler() http.Handler {
 	mux.Handle("/map/", mapHandler)
 	mux.Handle("/map", http.RedirectHandler("/map/", http.StatusPermanentRedirect))
 
+	serveShell := func(w http.ResponseWriter, r *http.Request, path string) {
+		w.Header().Set("Cache-Control", "no-cache")
+		http.ServeFile(w, r, path)
+	}
+	appRoutes := map[string]struct{}{
+		"/app/":          {},
+		"/app/profile/":  {},
+		"/app/world/":    {},
+		"/app/map/":      {},
+		"/app/settings/": {},
+		"/app/admin/":    {},
+		"/app/players/":  {},
+		"/app/guide/":    {},
+	}
+	mux.Handle("/app/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if _, ok := appRoutes[r.URL.Path]; !ok {
+			http.NotFound(w, r)
+			return
+		}
+		serveShell(w, r, filepath.Join(a.webDir, "app", "index.html"))
+	}))
+	mux.Handle("/app", http.RedirectHandler("/app/", http.StatusPermanentRedirect))
+	for _, route := range []string{"/app/profile", "/app/world", "/app/map", "/app/settings", "/app/admin", "/app/players", "/app/guide"} {
+		mux.Handle(route, http.RedirectHandler(route+"/", http.StatusPermanentRedirect))
+	}
+
+	authShell := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		serveShell(w, r, filepath.Join(a.webDir, "auth", "index.html"))
+	})
+	mux.Handle("/login", authShell)
+	mux.Handle("/register", authShell)
+	slashRedirect := func(route, canonical string) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if r.URL.Path != route {
+				http.NotFound(w, r)
+				return
+			}
+			http.Redirect(w, r, canonical, http.StatusPermanentRedirect)
+		})
+	}
+	for _, route := range []string{"/login/", "/register/"} {
+		mux.Handle(route, slashRedirect(route, strings.TrimSuffix(route, "/")))
+	}
+
 	static := http.FileServer(http.Dir(a.webDir))
 	mux.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if strings.HasPrefix(r.URL.Path, "/api/") {
@@ -185,6 +271,7 @@ func (a *App) worker(ctx context.Context) {
 	for {
 		a.refreshStatus(ctx)
 		a.processWhitelistActions(ctx)
+		a.expireSkinRequests()
 		if lastWhitelistSync.IsZero() || time.Since(lastWhitelistSync) >= time.Minute {
 			a.reconcileServerWhitelist(ctx)
 			lastWhitelistSync = time.Now()
@@ -390,6 +477,22 @@ func (a *App) initSchema() error {
 			username TEXT NOT NULL,
 			created_at TEXT NOT NULL
 		)`,
+		`CREATE TABLE IF NOT EXISTS skin_requests (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+			username TEXT NOT NULL,
+			player_uuid TEXT NOT NULL,
+			kind TEXT NOT NULL CHECK(kind IN ('player','upload')),
+			value TEXT NOT NULL,
+			model TEXT NOT NULL CHECK(model IN ('classic','slim')),
+			status TEXT NOT NULL CHECK(status IN ('pending','completed','failed')),
+			texture_url TEXT,
+			error TEXT,
+			created_at TEXT NOT NULL,
+			updated_at TEXT NOT NULL
+		)`,
+		`CREATE INDEX IF NOT EXISTS skin_requests_owner_idx ON skin_requests(user_id,id)`,
+		`CREATE UNIQUE INDEX IF NOT EXISTS skin_requests_one_pending_per_user ON skin_requests(user_id) WHERE status='pending'`,
 	}
 	for _, statement := range statements {
 		if _, _, err := a.db.Exec(statement); err != nil {

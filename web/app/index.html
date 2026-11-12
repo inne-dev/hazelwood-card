@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Профиль жителя Hazelwood." id="page-description">
+    <title>Hazelwood — игрок</title>
+    <link rel="icon" type="image/png" href="/api/seasonal-icon">
+    <link rel="stylesheet" href="/styles.css?v=portal-5">
+    <link rel="stylesheet" href="/portal.css?v=portal-4">
+    <link rel="stylesheet" href="/profile.css?v=profile-10">
+    <script src="/app.js?v=portal-6" defer></script>
+    <script src="/advancement-translations.js?v=mc26.3-1" defer></script>
+    <script src="/profile.js?v=profile-17" defer></script>
+  </head>
+  <body data-page="app">
+    <a class="skip-link" href="#main" data-i18n="skip">К содержимому</a>
+    <header class="site-header app-header">
+      <a class="brand" href="/" aria-label="Hazelwood — главная" data-i18n-aria="brand.home">
+        <img class="brand-mark" src="/api/seasonal-icon" alt="" width="40" height="40">
+        <span class="brand-name">hazelwood<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="primary-nav app-nav" aria-label="Разделы профиля" data-i18n-aria="app.navLabel">
+        <a href="/app/world/" data-app-link="world" data-i18n="nav.server">Мир</a>
+        <a href="/app/profile/" data-app-link="profile" data-i18n="nav.account">Профиль</a>
+        <a href="/app/players/" data-app-link="players" data-i18n="nav.players">Игроки</a>
+        <a href="/app/map/" data-app-link="map" data-i18n="nav.map">Карта</a>
+        <a href="/app/guide/" data-app-link="guide" data-i18n="nav.guide">Инструкция</a>
+        <a href="/app/settings/" data-app-link="settings" data-i18n="app.settings">Настройки</a>
+        <a href="/app/admin/" id="admin-nav" data-app-link="admin" data-i18n="admin.title" hidden>Администрирование</a>
+      </nav>
+      <div class="language-control" id="language-control">
+        <button class="language-trigger" id="language-trigger" type="button" aria-label="Язык сайта" data-i18n-aria="language.label" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu">
+          <span data-language-code>RU</span><span class="language-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="language-menu" id="language-menu" role="listbox" aria-label="Язык сайта" data-i18n-aria="language.label" hidden>
+          <button class="language-option" type="button" role="option" lang="ru" data-language="ru" aria-selected="true" tabindex="-1"><span class="language-name">Русский</span><span class="language-option-meta"><span>RU</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+          <button class="language-option" type="button" role="option" lang="uk" data-language="uk" aria-selected="false" tabindex="-1"><span class="language-name">Українська</span><span class="language-option-meta"><span>UK</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+          <button class="language-option" type="button" role="option" lang="en" data-language="en" aria-selected="false" tabindex="-1"><span class="language-name">English</span><span class="language-option-meta"><span>EN</span><span class="language-check" aria-hidden="true">✓</span></span></button>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false"><span class="theme-icon" aria-hidden="true"><i></i></span><span id="theme-label">Тёмная</span></button>
+      <button class="app-logout" id="logout-button" type="button" data-i18n="member.logout">Выйти</button>
+    </header>
+
+    <main id="main" class="application shell">
+      <div class="app-loading" id="app-loading" role="status" data-i18n="app.loading">Загрузка профиля…</div>
+      <section class="app-view" data-app-view="profile" hidden aria-labelledby="profile-title">
+        <div class="app-heading app-heading-inline"><div><h1 id="profile-title" data-i18n="member.title">Житель Hazelwood</h1></div><div class="profile-heading-actions"><a class="button button-outline profile-back-link" id="profile-back-link" href="/app/players/" hidden>← <span data-i18n="nav.players">Игроки</span></a><button class="button button-outline" id="profile-map-open" type="button" aria-haspopup="dialog" aria-controls="profile-map-dialog">Открыть интерактивную карту <span aria-hidden="true">↗</span></button></div></div>
+        <article class="profile-card member-card" id="member-profile"></article>
+        <div class="profile-dashboard" id="profile-dashboard" aria-live="polite"></div>
+        <dialog class="profile-map-dialog" id="profile-map-dialog" aria-labelledby="profile-map-title">
+          <div class="profile-map-dialog-panel">
+            <header class="profile-map-dialog-header"><h2 id="profile-map-title">Hazelwood · интерактивная карта</h2><button class="profile-map-dialog-close" id="profile-map-close" type="button" aria-label="Закрыть карту">×</button></header>
+            <iframe id="profile-map-frame" title="Интерактивная карта мира Hazelwood" loading="lazy" referrerpolicy="same-origin" allow="fullscreen"></iframe>
+          </div>
+        </dialog>
+      </section>
+
+      <section class="app-view" data-app-view="players" hidden aria-labelledby="players-title">
+        <div class="app-heading"><p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span id="players-eyebrow">ЖИТЕЛИ HAZELWOOD</span></p><h1 id="players-title">Игроки</h1></div>
+        <div class="players-directory" id="players-directory" aria-live="polite"></div>
+      </section>
+
+      <section class="app-view" data-app-view="guide" hidden aria-labelledby="guide-title">
+        <div class="app-heading"><h1 id="guide-title">Инструкция</h1></div>
+        <div class="guide-content" id="guide-content"></div>
+      </section>
+
+      <section class="app-view" data-app-view="world" hidden aria-labelledby="app-world-title">
+        <div class="app-heading"><p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="world.eyebrow">МИР HAZELWOOD</span></p><h1 id="app-world-title" data-i18n="world.title">Активность</h1></div>
+        <div class="world-grid app-world-grid">
+          <article class="presence-panel panel" aria-labelledby="presence-title">
+            <div class="panel-topline"><span class="panel-kicker"><span class="mini-block-icon" aria-hidden="true"></span><span data-i18n="server.kicker">СЕРВЕР · JAVA</span></span><span class="status-pill status-loading" id="server-state"><span class="state-dot"></span><span id="server-state-text">Проверяем</span></span></div>
+            <h2 id="presence-title" class="visually-hidden" data-i18n="server.title">Состояние сервера</h2>
+            <div class="presence-count" id="presence-count"><span class="presence-number" id="online-count" aria-live="polite">—</span><span class="presence-total">/ <span id="max-players">—</span></span><span class="presence-label" data-i18n="server.playersLabel">игроков в мире</span></div>
+            <p class="presence-unavailable" id="server-unavailable" role="status" hidden>Сервер сейчас недоступен.</p>
+            <div class="player-presence"><ul class="online-list" id="online-players" aria-live="polite" aria-label="Игроки онлайн" data-i18n-aria="server.onlineList"></ul></div>
+          </article>
+          <article class="map-panel" aria-labelledby="app-map-title">
+            <h2 id="app-map-title" class="visually-hidden" data-i18n="map.previewTitle">Снимок карты мира Hazelwood</h2>
+            <div class="map-stage"><div class="map-preview" id="map-preview"><span class="map-plane"><img class="map-preview-image" id="map-preview-image" src="/map-preview.png?v=preview-crop-1" alt="" loading="lazy" decoding="async"></span><span class="map-preview-unavailable" id="map-preview-unavailable" role="status" data-i18n="map.previewUnavailable" hidden>Снимок карты недоступен</span></div></div>
+            <a class="button button-outline app-map-link" href="/app/map/" data-i18n="member.openMap">Открыть интерактивную карту</a>
+          </article>
+        </div>
+        <div class="status-error" id="status-error" role="status" hidden></div>
+      </section>
+
+      <section class="app-view" data-app-view="map" hidden aria-labelledby="interactive-map-title">
+        <div class="app-heading app-heading-inline"><div><p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="map.title">КАРТА МИРА</span></p><h1 id="interactive-map-title" data-i18n="member.openMap">Карта Hazelwood</h1></div><a class="button button-outline" href="/app/world/" data-i18n="nav.server">Назад к миру</a></div>
+        <iframe class="app-map-frame" id="interactive-map" title="Интерактивная карта мира Hazelwood" data-i18n-title="map.iframeTitle" loading="lazy" referrerpolicy="same-origin" allow="fullscreen"></iframe>
+      </section>
+
+      <section class="app-view" data-app-view="settings" hidden aria-labelledby="settings-title">
+        <div class="app-heading"><p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="app.preferences">ПРЕДПОЧТЕНИЯ</span></p><h1 id="settings-title" data-i18n="app.settings">Настройки</h1></div>
+        <div class="settings-grid">
+          <div class="settings-control"><span id="settings-theme-label" data-i18n="theme.label">Оформление</span><div class="settings-select" data-settings-select="theme">
+            <button class="settings-select-trigger" id="settings-theme" type="button" aria-labelledby="settings-theme-label settings-theme-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="settings-theme-menu"><span id="settings-theme-value" data-settings-selected>Как в системе</span><span class="settings-select-chevron" aria-hidden="true"></span></button>
+            <div class="settings-select-menu" id="settings-theme-menu" role="listbox" aria-labelledby="settings-theme-label" hidden>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="system" data-i18n="settings.system" aria-selected="true">Как в системе</div>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="light" data-i18n="theme.light" aria-selected="false">Светлая</div>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="dark" data-i18n="theme.dark" aria-selected="false">Тёмная</div>
+            </div>
+          </div></div>
+          <div class="settings-control"><span id="settings-language-label" data-i18n="language.label">Язык</span><div class="settings-select" data-settings-select="language">
+            <button class="settings-select-trigger" id="settings-language" type="button" aria-labelledby="settings-language-label settings-language-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="settings-language-menu"><span id="settings-language-value" data-settings-selected>Русский</span><span class="settings-select-chevron" aria-hidden="true"></span></button>
+            <div class="settings-select-menu" id="settings-language-menu" role="listbox" aria-labelledby="settings-language-label" hidden>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="ru" aria-selected="true">Русский</div>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="uk" aria-selected="false">Українська</div>
+              <div class="settings-select-option" role="option" tabindex="-1" data-value="en" aria-selected="false">English</div>
+            </div>
+          </div></div>
+        </div>
+      </section>
+
+      <section class="app-view" data-app-view="admin" hidden aria-labelledby="admin-title">
+        <section class="admin-panel" id="admin-panel" aria-labelledby="admin-title">
+          <div class="app-heading admin-heading"><div><p class="eyebrow"><span class="status-cube" aria-hidden="true"></span><span data-i18n="admin.eyebrow">УПРАВЛЕНИЕ</span></p><h1 id="admin-title" data-i18n="admin.title">Администрирование</h1></div><span class="admin-label" data-i18n="admin.badge">АДМИН</span></div>
+          <div class="admin-grid">
+            <div class="admin-tool invite-tool"><h2 data-i18n="admin.inviteTitle">Приглашения</h2><p class="admin-meta" data-i18n="admin.inviteMeta">ОДНОРАЗОВЫЙ · ПОКАЗ ОДИН РАЗ</p><button class="button button-dark" id="create-invite" type="button"><span data-i18n="admin.inviteButton">Создать код</span><span aria-hidden="true">＋</span></button><div class="invite-result" id="invite-result" hidden><code id="invite-code-result"></code><button class="copy-button" id="copy-invite" type="button" data-i18n="admin.copy">Копировать</button></div><p class="admin-message" id="invite-message" role="status" aria-live="polite"></p></div>
+            <div class="admin-tool player-tool"><h2 data-i18n="admin.playersTitle">Игроки</h2><form class="admin-search" id="admin-search-form"><label class="visually-hidden" for="admin-search" data-i18n="admin.searchLabel">Поиск игрока</label><input id="admin-search" name="search" autocomplete="off" placeholder="Поиск по нику" data-i18n-placeholder="admin.searchPlaceholder"><button class="button button-dark" type="submit" data-i18n="admin.searchButton">Найти</button></form><div class="admin-players" id="admin-players" aria-live="polite"><p class="admin-message" data-i18n="admin.playersHint">Введите ник для поиска.</p></div></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><a class="footer-brand" href="/">hazelwood<span>.</span></a><p data-i18n="footer">JAVA EDITION · 26.3</p></div></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

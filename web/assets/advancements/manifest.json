@@ -1,0 +1,758 @@
+[
+  {
+    "id": "minecraft:adventure/adventuring_time",
+    "item": "minecraft:diamond_boots",
+    "source": "assets/minecraft/textures/item/diamond_boots.png",
+    "asset": "assets/advancements/minecraft/adventure/adventuring_time.png"
+  },
+  {
+    "id": "minecraft:adventure/arbalistic",
+    "item": "minecraft:crossbow",
+    "source": "assets/minecraft/textures/item/crossbow_standby.png",
+    "asset": "assets/advancements/minecraft/adventure/arbalistic.png"
+  },
+  {
+    "id": "minecraft:adventure/avoid_vibration",
+    "item": "minecraft:sculk_sensor",
+    "source": "assets/minecraft/textures/block/sculk_sensor_top.png",
+    "asset": "assets/advancements/minecraft/adventure/avoid_vibration.png"
+  },
+  {
+    "id": "minecraft:adventure/blowback",
+    "item": "minecraft:wind_charge",
+    "source": "assets/minecraft/textures/item/wind_charge.png",
+    "asset": "assets/advancements/minecraft/adventure/blowback.png"
+  },
+  {
+    "id": "minecraft:adventure/brush_armadillo",
+    "item": "minecraft:armadillo_scute",
+    "source": "assets/minecraft/textures/item/armadillo_scute.png",
+    "asset": "assets/advancements/minecraft/adventure/brush_armadillo.png"
+  },
+  {
+    "id": "minecraft:adventure/bullseye",
+    "item": "minecraft:target",
+    "source": "assets/minecraft/textures/block/target_side.png",
+    "asset": "assets/advancements/minecraft/adventure/bullseye.png"
+  },
+  {
+    "id": "minecraft:adventure/craft_decorated_pot_using_only_sherds",
+    "item": "minecraft:decorated_pot",
+    "source": "assets/minecraft/textures/entity/decorated_pot/decorated_pot_side.png",
+    "asset": "assets/advancements/minecraft/adventure/craft_decorated_pot_using_only_sherds.png"
+  },
+  {
+    "id": "minecraft:adventure/crafters_crafting_crafters",
+    "item": "minecraft:crafter",
+    "source": "assets/minecraft/textures/block/crafter_top.png",
+    "asset": "assets/advancements/minecraft/adventure/crafters_crafting_crafters.png"
+  },
+  {
+    "id": "minecraft:adventure/fall_from_world_height",
+    "item": "minecraft:water_bucket",
+    "source": "assets/minecraft/textures/item/water_bucket.png",
+    "asset": "assets/advancements/minecraft/adventure/fall_from_world_height.png"
+  },
+  {
+    "id": "minecraft:adventure/heart_transplanter",
+    "item": "minecraft:creaking_heart",
+    "source": "assets/minecraft/textures/block/creaking_heart.png",
+    "asset": "assets/advancements/minecraft/adventure/heart_transplanter.png"
+  },
+  {
+    "id": "minecraft:adventure/hero_of_the_village",
+    "item": "minecraft:white_banner",
+    "source": "assets/minecraft/textures/entity/banner/banner_base.png",
+    "asset": "assets/advancements/minecraft/adventure/hero_of_the_village.png"
+  },
+  {
+    "id": "minecraft:adventure/honey_block_slide",
+    "item": "minecraft:honey_block",
+    "source": "assets/minecraft/textures/block/honey_block_side.png",
+    "asset": "assets/advancements/minecraft/adventure/honey_block_slide.png"
+  },
+  {
+    "id": "minecraft:adventure/kill_a_mob",
+    "item": "minecraft:iron_sword",
+    "source": "assets/minecraft/textures/item/iron_sword.png",
+    "asset": "assets/advancements/minecraft/adventure/kill_a_mob.png"
+  },
+  {
+    "id": "minecraft:adventure/kill_all_mobs",
+    "item": "minecraft:diamond_sword",
+    "source": "assets/minecraft/textures/item/diamond_sword.png",
+    "asset": "assets/advancements/minecraft/adventure/kill_all_mobs.png"
+  },
+  {
+    "id": "minecraft:adventure/kill_mob_near_sculk_catalyst",
+    "item": "minecraft:sculk_catalyst",
+    "source": "assets/minecraft/textures/block/sculk_catalyst_top.png",
+    "asset": "assets/advancements/minecraft/adventure/kill_mob_near_sculk_catalyst.png"
+  },
+  {
+    "id": "minecraft:adventure/lighten_up",
+    "item": "minecraft:copper_bulb",
+    "source": "assets/minecraft/textures/block/copper_bulb.png",
+    "asset": "assets/advancements/minecraft/adventure/lighten_up.png"
+  },
+  {
+    "id": "minecraft:adventure/lightning_rod_with_villager_no_fire",
+    "item": "minecraft:lightning_rod",
+    "source": "assets/minecraft/textures/block/lightning_rod.png",
+    "asset": "assets/advancements/minecraft/adventure/lightning_rod_with_villager_no_fire.png"
+  },
+  {
+    "id": "minecraft:adventure/minecraft_trials_edition",
+    "item": "minecraft:chiseled_tuff",
+    "source": "assets/minecraft/textures/block/chiseled_tuff.png",
+    "asset": "assets/advancements/minecraft/adventure/minecraft_trials_edition.png"
+  },
+  {
+    "id": "minecraft:adventure/ol_betsy",
+    "item": "minecraft:crossbow",
+    "source": "assets/minecraft/textures/item/crossbow_standby.png",
+    "asset": "assets/advancements/minecraft/adventure/ol_betsy.png"
+  },
+  {
+    "id": "minecraft:adventure/overoverkill",
+    "item": "minecraft:mace",
+    "source": "assets/minecraft/textures/item/mace.png",
+    "asset": "assets/advancements/minecraft/adventure/overoverkill.png"
+  },
+  {
+    "id": "minecraft:adventure/play_jukebox_in_meadows",
+    "item": "minecraft:jukebox",
+    "source": "assets/minecraft/textures/block/jukebox_top.png",
+    "asset": "assets/advancements/minecraft/adventure/play_jukebox_in_meadows.png"
+  },
+  {
+    "id": "minecraft:adventure/read_power_of_chiseled_bookshelf",
+    "item": "minecraft:chiseled_bookshelf",
+    "source": "assets/minecraft/textures/block/chiseled_bookshelf_empty.png",
+    "asset": "assets/advancements/minecraft/adventure/read_power_of_chiseled_bookshelf.png"
+  },
+  {
+    "id": "minecraft:adventure/revaulting",
+    "item": "minecraft:ominous_trial_key",
+    "source": "assets/minecraft/textures/item/ominous_trial_key.png",
+    "asset": "assets/advancements/minecraft/adventure/revaulting.png"
+  },
+  {
+    "id": "minecraft:adventure/root",
+    "item": "minecraft:map",
+    "source": "assets/minecraft/textures/item/map.png",
+    "asset": "assets/advancements/minecraft/adventure/root.png"
+  },
+  {
+    "id": "minecraft:adventure/salvage_sherd",
+    "item": "minecraft:brush",
+    "source": "assets/minecraft/textures/item/brush.png",
+    "asset": "assets/advancements/minecraft/adventure/salvage_sherd.png"
+  },
+  {
+    "id": "minecraft:adventure/shoot_arrow",
+    "item": "minecraft:bow",
+    "source": "assets/minecraft/textures/item/bow.png",
+    "asset": "assets/advancements/minecraft/adventure/shoot_arrow.png"
+  },
+  {
+    "id": "minecraft:adventure/sleep_in_bed",
+    "item": "minecraft:red_bed",
+    "source": "assets/minecraft/textures/block/red_bed_head_up.png",
+    "asset": "assets/advancements/minecraft/adventure/sleep_in_bed.png"
+  },
+  {
+    "id": "minecraft:adventure/sniper_duel",
+    "item": "minecraft:arrow",
+    "source": "assets/minecraft/textures/item/arrow.png",
+    "asset": "assets/advancements/minecraft/adventure/sniper_duel.png"
+  },
+  {
+    "id": "minecraft:adventure/spear_many_mobs",
+    "item": "minecraft:iron_spear",
+    "source": "assets/minecraft/textures/item/iron_spear.png",
+    "asset": "assets/advancements/minecraft/adventure/spear_many_mobs.png"
+  },
+  {
+    "id": "minecraft:adventure/spyglass_at_dragon",
+    "item": "minecraft:spyglass",
+    "source": "assets/minecraft/textures/item/spyglass.png",
+    "asset": "assets/advancements/minecraft/adventure/spyglass_at_dragon.png"
+  },
+  {
+    "id": "minecraft:adventure/spyglass_at_ghast",
+    "item": "minecraft:spyglass",
+    "source": "assets/minecraft/textures/item/spyglass.png",
+    "asset": "assets/advancements/minecraft/adventure/spyglass_at_ghast.png"
+  },
+  {
+    "id": "minecraft:adventure/spyglass_at_parrot",
+    "item": "minecraft:spyglass",
+    "source": "assets/minecraft/textures/item/spyglass.png",
+    "asset": "assets/advancements/minecraft/adventure/spyglass_at_parrot.png"
+  },
+  {
+    "id": "minecraft:adventure/summon_iron_golem",
+    "item": "minecraft:carved_pumpkin",
+    "source": "assets/minecraft/textures/block/carved_pumpkin.png",
+    "asset": "assets/advancements/minecraft/adventure/summon_iron_golem.png"
+  },
+  {
+    "id": "minecraft:adventure/throw_trident",
+    "item": "minecraft:trident",
+    "source": "assets/minecraft/textures/item/trident.png",
+    "asset": "assets/advancements/minecraft/adventure/throw_trident.png"
+  },
+  {
+    "id": "minecraft:adventure/totem_of_undying",
+    "item": "minecraft:totem_of_undying",
+    "source": "assets/minecraft/textures/item/totem_of_undying.png",
+    "asset": "assets/advancements/minecraft/adventure/totem_of_undying.png"
+  },
+  {
+    "id": "minecraft:adventure/trade",
+    "item": "minecraft:emerald",
+    "source": "assets/minecraft/textures/item/emerald.png",
+    "asset": "assets/advancements/minecraft/adventure/trade.png"
+  },
+  {
+    "id": "minecraft:adventure/trade_at_world_height",
+    "item": "minecraft:emerald",
+    "source": "assets/minecraft/textures/item/emerald.png",
+    "asset": "assets/advancements/minecraft/adventure/trade_at_world_height.png"
+  },
+  {
+    "id": "minecraft:adventure/trim_with_all_exclusive_armor_patterns",
+    "item": "minecraft:silence_armor_trim_smithing_template",
+    "source": "assets/minecraft/textures/item/silence_armor_trim_smithing_template.png",
+    "asset": "assets/advancements/minecraft/adventure/trim_with_all_exclusive_armor_patterns.png"
+  },
+  {
+    "id": "minecraft:adventure/trim_with_any_armor_pattern",
+    "item": "minecraft:dune_armor_trim_smithing_template",
+    "source": "assets/minecraft/textures/item/dune_armor_trim_smithing_template.png",
+    "asset": "assets/advancements/minecraft/adventure/trim_with_any_armor_pattern.png"
+  },
+  {
+    "id": "minecraft:adventure/two_birds_one_arrow",
+    "item": "minecraft:crossbow",
+    "source": "assets/minecraft/textures/item/crossbow_standby.png",
+    "asset": "assets/advancements/minecraft/adventure/two_birds_one_arrow.png"
+  },
+  {
+    "id": "minecraft:adventure/under_lock_and_key",
+    "item": "minecraft:trial_key",
+    "source": "assets/minecraft/textures/item/trial_key.png",
+    "asset": "assets/advancements/minecraft/adventure/under_lock_and_key.png"
+  },
+  {
+    "id": "minecraft:adventure/use_lodestone",
+    "item": "minecraft:lodestone",
+    "source": "assets/minecraft/textures/block/lodestone_side.png",
+    "asset": "assets/advancements/minecraft/adventure/use_lodestone.png"
+  },
+  {
+    "id": "minecraft:adventure/very_very_frightening",
+    "item": "minecraft:trident",
+    "source": "assets/minecraft/textures/item/trident.png",
+    "asset": "assets/advancements/minecraft/adventure/very_very_frightening.png"
+  },
+  {
+    "id": "minecraft:adventure/voluntary_exile",
+    "item": "minecraft:white_banner",
+    "source": "assets/minecraft/textures/entity/banner/banner_base.png",
+    "asset": "assets/advancements/minecraft/adventure/voluntary_exile.png"
+  },
+  {
+    "id": "minecraft:adventure/walk_on_powder_snow_with_leather_boots",
+    "item": "minecraft:leather_boots",
+    "source": "assets/minecraft/textures/item/leather_boots.png",
+    "asset": "assets/advancements/minecraft/adventure/walk_on_powder_snow_with_leather_boots.png"
+  },
+  {
+    "id": "minecraft:adventure/who_needs_rockets",
+    "item": "minecraft:wind_charge",
+    "source": "assets/minecraft/textures/item/wind_charge.png",
+    "asset": "assets/advancements/minecraft/adventure/who_needs_rockets.png"
+  },
+  {
+    "id": "minecraft:adventure/whos_the_pillager_now",
+    "item": "minecraft:crossbow",
+    "source": "assets/minecraft/textures/item/crossbow_standby.png",
+    "asset": "assets/advancements/minecraft/adventure/whos_the_pillager_now.png"
+  },
+  {
+    "id": "minecraft:end/dragon_breath",
+    "item": "minecraft:dragon_breath",
+    "source": "assets/minecraft/textures/item/dragon_breath.png",
+    "asset": "assets/advancements/minecraft/end/dragon_breath.png"
+  },
+  {
+    "id": "minecraft:end/dragon_egg",
+    "item": "minecraft:dragon_egg",
+    "source": "assets/minecraft/textures/block/dragon_egg.png",
+    "asset": "assets/advancements/minecraft/end/dragon_egg.png"
+  },
+  {
+    "id": "minecraft:end/elytra",
+    "item": "minecraft:elytra",
+    "source": "assets/minecraft/textures/item/elytra.png",
+    "asset": "assets/advancements/minecraft/end/elytra.png"
+  },
+  {
+    "id": "minecraft:end/enter_end_gateway",
+    "item": "minecraft:ender_pearl",
+    "source": "assets/minecraft/textures/item/ender_pearl.png",
+    "asset": "assets/advancements/minecraft/end/enter_end_gateway.png"
+  },
+  {
+    "id": "minecraft:end/find_end_city",
+    "item": "minecraft:purpur_block",
+    "source": "assets/minecraft/textures/block/purpur_block.png",
+    "asset": "assets/advancements/minecraft/end/find_end_city.png"
+  },
+  {
+    "id": "minecraft:end/kill_dragon",
+    "item": "minecraft:dragon_head",
+    "source": "assets/minecraft/textures/entity/enderdragon/dragon.png (16\u00d716 head-face UV crop at 128,45)",
+    "asset": "assets/advancements/minecraft/end/kill_dragon.png"
+  },
+  {
+    "id": "minecraft:end/levitate",
+    "item": "minecraft:shulker_shell",
+    "source": "assets/minecraft/textures/item/shulker_shell.png",
+    "asset": "assets/advancements/minecraft/end/levitate.png"
+  },
+  {
+    "id": "minecraft:end/respawn_dragon",
+    "item": "minecraft:end_crystal",
+    "source": "assets/minecraft/textures/item/end_crystal.png",
+    "asset": "assets/advancements/minecraft/end/respawn_dragon.png"
+  },
+  {
+    "id": "minecraft:end/root",
+    "item": "minecraft:end_stone",
+    "source": "assets/minecraft/textures/block/end_stone.png",
+    "asset": "assets/advancements/minecraft/end/root.png"
+  },
+  {
+    "id": "minecraft:husbandry/allay_deliver_cake_to_note_block",
+    "item": "minecraft:note_block",
+    "source": "assets/minecraft/textures/block/note_block.png",
+    "asset": "assets/advancements/minecraft/husbandry/allay_deliver_cake_to_note_block.png"
+  },
+  {
+    "id": "minecraft:husbandry/allay_deliver_item_to_player",
+    "item": "minecraft:cookie",
+    "source": "assets/minecraft/textures/item/cookie.png",
+    "asset": "assets/advancements/minecraft/husbandry/allay_deliver_item_to_player.png"
+  },
+  {
+    "id": "minecraft:husbandry/axolotl_in_a_bucket",
+    "item": "minecraft:axolotl_bucket",
+    "source": "assets/minecraft/textures/item/axolotl_bucket.png",
+    "asset": "assets/advancements/minecraft/husbandry/axolotl_in_a_bucket.png"
+  },
+  {
+    "id": "minecraft:husbandry/balanced_diet",
+    "item": "minecraft:apple",
+    "source": "assets/minecraft/textures/item/apple.png",
+    "asset": "assets/advancements/minecraft/husbandry/balanced_diet.png"
+  },
+  {
+    "id": "minecraft:husbandry/bred_all_animals",
+    "item": "minecraft:golden_carrot",
+    "source": "assets/minecraft/textures/item/golden_carrot.png",
+    "asset": "assets/advancements/minecraft/husbandry/bred_all_animals.png"
+  },
+  {
+    "id": "minecraft:husbandry/breed_an_animal",
+    "item": "minecraft:wheat",
+    "source": "assets/minecraft/textures/item/wheat.png",
+    "asset": "assets/advancements/minecraft/husbandry/breed_an_animal.png"
+  },
+  {
+    "id": "minecraft:husbandry/complete_catalogue",
+    "item": "minecraft:cod",
+    "source": "assets/minecraft/textures/item/cod.png",
+    "asset": "assets/advancements/minecraft/husbandry/complete_catalogue.png"
+  },
+  {
+    "id": "minecraft:husbandry/feed_snifflet",
+    "item": "minecraft:torchflower_seeds",
+    "source": "assets/minecraft/textures/item/torchflower_seeds.png",
+    "asset": "assets/advancements/minecraft/husbandry/feed_snifflet.png"
+  },
+  {
+    "id": "minecraft:husbandry/fishy_business",
+    "item": "minecraft:fishing_rod",
+    "source": "assets/minecraft/textures/item/fishing_rod.png",
+    "asset": "assets/advancements/minecraft/husbandry/fishy_business.png"
+  },
+  {
+    "id": "minecraft:husbandry/froglights",
+    "item": "minecraft:verdant_froglight",
+    "source": "assets/minecraft/textures/block/verdant_froglight_side.png",
+    "asset": "assets/advancements/minecraft/husbandry/froglights.png"
+  },
+  {
+    "id": "minecraft:husbandry/kill_axolotl_target",
+    "item": "minecraft:tropical_fish_bucket",
+    "source": "assets/minecraft/textures/item/tropical_fish_bucket.png",
+    "asset": "assets/advancements/minecraft/husbandry/kill_axolotl_target.png"
+  },
+  {
+    "id": "minecraft:husbandry/leash_all_frog_variants",
+    "item": "minecraft:lead",
+    "source": "assets/minecraft/textures/item/lead.png",
+    "asset": "assets/advancements/minecraft/husbandry/leash_all_frog_variants.png"
+  },
+  {
+    "id": "minecraft:husbandry/make_a_sign_glow",
+    "item": "minecraft:glow_ink_sac",
+    "source": "assets/minecraft/textures/item/glow_ink_sac.png",
+    "asset": "assets/advancements/minecraft/husbandry/make_a_sign_glow.png"
+  },
+  {
+    "id": "minecraft:husbandry/obtain_netherite_hoe",
+    "item": "minecraft:netherite_hoe",
+    "source": "assets/minecraft/textures/item/netherite_hoe.png",
+    "asset": "assets/advancements/minecraft/husbandry/obtain_netherite_hoe.png"
+  },
+  {
+    "id": "minecraft:husbandry/obtain_sniffer_egg",
+    "item": "minecraft:sniffer_egg",
+    "source": "assets/minecraft/textures/item/sniffer_egg.png",
+    "asset": "assets/advancements/minecraft/husbandry/obtain_sniffer_egg.png"
+  },
+  {
+    "id": "minecraft:husbandry/place_dried_ghast_in_water",
+    "item": "minecraft:dried_ghast",
+    "source": "assets/minecraft/textures/block/dried_ghast_hydration_0_top.png",
+    "asset": "assets/advancements/minecraft/husbandry/place_dried_ghast_in_water.png"
+  },
+  {
+    "id": "minecraft:husbandry/plant_any_sniffer_seed",
+    "item": "minecraft:pitcher_pod",
+    "source": "assets/minecraft/textures/item/pitcher_pod.png",
+    "asset": "assets/advancements/minecraft/husbandry/plant_any_sniffer_seed.png"
+  },
+  {
+    "id": "minecraft:husbandry/plant_seed",
+    "item": "minecraft:wheat",
+    "source": "assets/minecraft/textures/item/wheat.png",
+    "asset": "assets/advancements/minecraft/husbandry/plant_seed.png"
+  },
+  {
+    "id": "minecraft:husbandry/remove_wolf_armor",
+    "item": "minecraft:shears",
+    "source": "assets/minecraft/textures/item/shears.png",
+    "asset": "assets/advancements/minecraft/husbandry/remove_wolf_armor.png"
+  },
+  {
+    "id": "minecraft:husbandry/repair_wolf_armor",
+    "item": "minecraft:wolf_armor",
+    "source": "assets/minecraft/textures/item/wolf_armor.png",
+    "asset": "assets/advancements/minecraft/husbandry/repair_wolf_armor.png"
+  },
+  {
+    "id": "minecraft:husbandry/ride_a_boat_with_a_goat",
+    "item": "minecraft:oak_boat",
+    "source": "assets/minecraft/textures/item/oak_boat.png",
+    "asset": "assets/advancements/minecraft/husbandry/ride_a_boat_with_a_goat.png"
+  },
+  {
+    "id": "minecraft:husbandry/root",
+    "item": "minecraft:hay_block",
+    "source": "assets/minecraft/textures/block/hay_block_side.png",
+    "asset": "assets/advancements/minecraft/husbandry/root.png"
+  },
+  {
+    "id": "minecraft:husbandry/safely_harvest_honey",
+    "item": "minecraft:honey_bottle",
+    "source": "assets/minecraft/textures/item/honey_bottle.png",
+    "asset": "assets/advancements/minecraft/husbandry/safely_harvest_honey.png"
+  },
+  {
+    "id": "minecraft:husbandry/silk_touch_nest",
+    "item": "minecraft:bee_nest",
+    "source": "assets/minecraft/textures/block/bee_nest_front.png",
+    "asset": "assets/advancements/minecraft/husbandry/silk_touch_nest.png"
+  },
+  {
+    "id": "minecraft:husbandry/tactical_fishing",
+    "item": "minecraft:pufferfish_bucket",
+    "source": "assets/minecraft/textures/item/pufferfish_bucket.png",
+    "asset": "assets/advancements/minecraft/husbandry/tactical_fishing.png"
+  },
+  {
+    "id": "minecraft:husbandry/tadpole_in_a_bucket",
+    "item": "minecraft:tadpole_bucket",
+    "source": "assets/minecraft/textures/item/tadpole_bucket.png",
+    "asset": "assets/advancements/minecraft/husbandry/tadpole_in_a_bucket.png"
+  },
+  {
+    "id": "minecraft:husbandry/tame_an_animal",
+    "item": "minecraft:lead",
+    "source": "assets/minecraft/textures/item/lead.png",
+    "asset": "assets/advancements/minecraft/husbandry/tame_an_animal.png"
+  },
+  {
+    "id": "minecraft:husbandry/uh_oh",
+    "item": "minecraft:tnt",
+    "source": "assets/minecraft/textures/block/tnt_top.png",
+    "asset": "assets/advancements/minecraft/husbandry/uh_oh.png"
+  },
+  {
+    "id": "minecraft:husbandry/wax_off",
+    "item": "minecraft:stone_axe",
+    "source": "assets/minecraft/textures/item/stone_axe.png",
+    "asset": "assets/advancements/minecraft/husbandry/wax_off.png"
+  },
+  {
+    "id": "minecraft:husbandry/wax_on",
+    "item": "minecraft:honeycomb",
+    "source": "assets/minecraft/textures/item/honeycomb.png",
+    "asset": "assets/advancements/minecraft/husbandry/wax_on.png"
+  },
+  {
+    "id": "minecraft:husbandry/whole_pack",
+    "item": "minecraft:bone",
+    "source": "assets/minecraft/textures/item/bone.png",
+    "asset": "assets/advancements/minecraft/husbandry/whole_pack.png"
+  },
+  {
+    "id": "minecraft:nether/all_effects",
+    "item": "minecraft:bucket",
+    "source": "assets/minecraft/textures/item/bucket.png",
+    "asset": "assets/advancements/minecraft/nether/all_effects.png"
+  },
+  {
+    "id": "minecraft:nether/all_potions",
+    "item": "minecraft:milk_bucket",
+    "source": "assets/minecraft/textures/item/milk_bucket.png",
+    "asset": "assets/advancements/minecraft/nether/all_potions.png"
+  },
+  {
+    "id": "minecraft:nether/brew_potion",
+    "item": "minecraft:potion",
+    "source": "assets/minecraft/textures/item/potion.png",
+    "asset": "assets/advancements/minecraft/nether/brew_potion.png"
+  },
+  {
+    "id": "minecraft:nether/charge_respawn_anchor",
+    "item": "minecraft:respawn_anchor",
+    "source": "assets/minecraft/textures/block/respawn_anchor_top_off.png",
+    "asset": "assets/advancements/minecraft/nether/charge_respawn_anchor.png"
+  },
+  {
+    "id": "minecraft:nether/create_beacon",
+    "item": "minecraft:beacon",
+    "source": "assets/minecraft/textures/block/glass.png",
+    "asset": "assets/advancements/minecraft/nether/create_beacon.png"
+  },
+  {
+    "id": "minecraft:nether/create_full_beacon",
+    "item": "minecraft:beacon",
+    "source": "assets/minecraft/textures/block/glass.png",
+    "asset": "assets/advancements/minecraft/nether/create_full_beacon.png"
+  },
+  {
+    "id": "minecraft:nether/distract_piglin",
+    "item": "minecraft:gold_ingot",
+    "source": "assets/minecraft/textures/item/gold_ingot.png",
+    "asset": "assets/advancements/minecraft/nether/distract_piglin.png"
+  },
+  {
+    "id": "minecraft:nether/explore_nether",
+    "item": "minecraft:netherite_boots",
+    "source": "assets/minecraft/textures/item/netherite_boots.png",
+    "asset": "assets/advancements/minecraft/nether/explore_nether.png"
+  },
+  {
+    "id": "minecraft:nether/fast_travel",
+    "item": "minecraft:map",
+    "source": "assets/minecraft/textures/item/map.png",
+    "asset": "assets/advancements/minecraft/nether/fast_travel.png"
+  },
+  {
+    "id": "minecraft:nether/find_bastion",
+    "item": "minecraft:polished_blackstone_bricks",
+    "source": "assets/minecraft/textures/block/polished_blackstone_bricks.png",
+    "asset": "assets/advancements/minecraft/nether/find_bastion.png"
+  },
+  {
+    "id": "minecraft:nether/find_fortress",
+    "item": "minecraft:nether_bricks",
+    "source": "assets/minecraft/textures/block/nether_bricks.png",
+    "asset": "assets/advancements/minecraft/nether/find_fortress.png"
+  },
+  {
+    "id": "minecraft:nether/get_wither_skull",
+    "item": "minecraft:wither_skeleton_skull",
+    "source": "assets/minecraft/textures/block/soul_sand.png",
+    "asset": "assets/advancements/minecraft/nether/get_wither_skull.png"
+  },
+  {
+    "id": "minecraft:nether/loot_bastion",
+    "item": "minecraft:chest",
+    "source": "assets/minecraft/textures/block/oak_planks.png",
+    "asset": "assets/advancements/minecraft/nether/loot_bastion.png"
+  },
+  {
+    "id": "minecraft:nether/netherite_armor",
+    "item": "minecraft:netherite_chestplate",
+    "source": "assets/minecraft/textures/item/netherite_chestplate.png",
+    "asset": "assets/advancements/minecraft/nether/netherite_armor.png"
+  },
+  {
+    "id": "minecraft:nether/obtain_ancient_debris",
+    "item": "minecraft:ancient_debris",
+    "source": "assets/minecraft/textures/block/ancient_debris_side.png",
+    "asset": "assets/advancements/minecraft/nether/obtain_ancient_debris.png"
+  },
+  {
+    "id": "minecraft:nether/obtain_blaze_rod",
+    "item": "minecraft:blaze_rod",
+    "source": "assets/minecraft/textures/item/blaze_rod.png",
+    "asset": "assets/advancements/minecraft/nether/obtain_blaze_rod.png"
+  },
+  {
+    "id": "minecraft:nether/obtain_crying_obsidian",
+    "item": "minecraft:crying_obsidian",
+    "source": "assets/minecraft/textures/block/crying_obsidian.png",
+    "asset": "assets/advancements/minecraft/nether/obtain_crying_obsidian.png"
+  },
+  {
+    "id": "minecraft:nether/return_to_sender",
+    "item": "minecraft:fire_charge",
+    "source": "assets/minecraft/textures/item/fire_charge.png",
+    "asset": "assets/advancements/minecraft/nether/return_to_sender.png"
+  },
+  {
+    "id": "minecraft:nether/ride_strider",
+    "item": "minecraft:warped_fungus_on_a_stick",
+    "source": "assets/minecraft/textures/item/warped_fungus_on_a_stick.png",
+    "asset": "assets/advancements/minecraft/nether/ride_strider.png"
+  },
+  {
+    "id": "minecraft:nether/ride_strider_in_overworld_lava",
+    "item": "minecraft:warped_fungus_on_a_stick",
+    "source": "assets/minecraft/textures/item/warped_fungus_on_a_stick.png",
+    "asset": "assets/advancements/minecraft/nether/ride_strider_in_overworld_lava.png"
+  },
+  {
+    "id": "minecraft:nether/root",
+    "item": "minecraft:red_nether_bricks",
+    "source": "assets/minecraft/textures/block/red_nether_bricks.png",
+    "asset": "assets/advancements/minecraft/nether/root.png"
+  },
+  {
+    "id": "minecraft:nether/summon_wither",
+    "item": "minecraft:nether_star",
+    "source": "assets/minecraft/textures/item/nether_star.png",
+    "asset": "assets/advancements/minecraft/nether/summon_wither.png"
+  },
+  {
+    "id": "minecraft:nether/uneasy_alliance",
+    "item": "minecraft:ghast_tear",
+    "source": "assets/minecraft/textures/item/ghast_tear.png",
+    "asset": "assets/advancements/minecraft/nether/uneasy_alliance.png"
+  },
+  {
+    "id": "minecraft:story/cure_zombie_villager",
+    "item": "minecraft:golden_apple",
+    "source": "assets/minecraft/textures/item/golden_apple.png",
+    "asset": "assets/advancements/minecraft/story/cure_zombie_villager.png"
+  },
+  {
+    "id": "minecraft:story/deflect_arrow",
+    "item": "minecraft:shield",
+    "source": "assets/minecraft/textures/block/dark_oak_planks.png",
+    "asset": "assets/advancements/minecraft/story/deflect_arrow.png"
+  },
+  {
+    "id": "minecraft:story/enchant_item",
+    "item": "minecraft:enchanted_book",
+    "source": "assets/minecraft/textures/item/enchanted_book.png",
+    "asset": "assets/advancements/minecraft/story/enchant_item.png"
+  },
+  {
+    "id": "minecraft:story/enter_the_end",
+    "item": "minecraft:end_stone",
+    "source": "assets/minecraft/textures/block/end_stone.png",
+    "asset": "assets/advancements/minecraft/story/enter_the_end.png"
+  },
+  {
+    "id": "minecraft:story/enter_the_nether",
+    "item": "minecraft:flint_and_steel",
+    "source": "assets/minecraft/textures/item/flint_and_steel.png",
+    "asset": "assets/advancements/minecraft/story/enter_the_nether.png"
+  },
+  {
+    "id": "minecraft:story/follow_ender_eye",
+    "item": "minecraft:ender_eye",
+    "source": "assets/minecraft/textures/item/ender_eye.png",
+    "asset": "assets/advancements/minecraft/story/follow_ender_eye.png"
+  },
+  {
+    "id": "minecraft:story/form_obsidian",
+    "item": "minecraft:obsidian",
+    "source": "assets/minecraft/textures/block/obsidian.png",
+    "asset": "assets/advancements/minecraft/story/form_obsidian.png"
+  },
+  {
+    "id": "minecraft:story/iron_tools",
+    "item": "minecraft:iron_pickaxe",
+    "source": "assets/minecraft/textures/item/iron_pickaxe.png",
+    "asset": "assets/advancements/minecraft/story/iron_tools.png"
+  },
+  {
+    "id": "minecraft:story/lava_bucket",
+    "item": "minecraft:lava_bucket",
+    "source": "assets/minecraft/textures/item/lava_bucket.png",
+    "asset": "assets/advancements/minecraft/story/lava_bucket.png"
+  },
+  {
+    "id": "minecraft:story/mine_diamond",
+    "item": "minecraft:diamond",
+    "source": "assets/minecraft/textures/item/diamond.png",
+    "asset": "assets/advancements/minecraft/story/mine_diamond.png"
+  },
+  {
+    "id": "minecraft:story/mine_stone",
+    "item": "minecraft:wooden_pickaxe",
+    "source": "assets/minecraft/textures/item/wooden_pickaxe.png",
+    "asset": "assets/advancements/minecraft/story/mine_stone.png"
+  },
+  {
+    "id": "minecraft:story/obtain_armor",
+    "item": "minecraft:iron_chestplate",
+    "source": "assets/minecraft/textures/item/iron_chestplate.png",
+    "asset": "assets/advancements/minecraft/story/obtain_armor.png"
+  },
+  {
+    "id": "minecraft:story/root",
+    "item": "minecraft:grass_block",
+    "source": "assets/minecraft/textures/block/grass_block_side.png",
+    "asset": "assets/advancements/minecraft/story/root.png"
+  },
+  {
+    "id": "minecraft:story/shiny_gear",
+    "item": "minecraft:diamond_chestplate",
+    "source": "assets/minecraft/textures/item/diamond_chestplate.png",
+    "asset": "assets/advancements/minecraft/story/shiny_gear.png"
+  },
+  {
+    "id": "minecraft:story/smelt_iron",
+    "item": "minecraft:iron_ingot",
+    "source": "assets/minecraft/textures/item/iron_ingot.png",
+    "asset": "assets/advancements/minecraft/story/smelt_iron.png"
+  },
+  {
+    "id": "minecraft:story/upgrade_tools",
+    "item": "minecraft:stone_pickaxe",
+    "source": "assets/minecraft/textures/item/stone_pickaxe.png",
+    "asset": "assets/advancements/minecraft/story/upgrade_tools.png"
+  }
+]
