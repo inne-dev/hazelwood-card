@@ -9,11 +9,9 @@ import java.util.Objects;
 /** Builds the Russian server-list message for the current UTC season. */
 final class SeasonalMotd {
     static final String STANDARD_MESSAGE =
-            "Приветики, кругосветики";
+            "Добро пожаловать!";
     static final String HALLOWEEN_MESSAGE =
             "🎃 С Хэллоуином! • Сладость или гадость!";
-    static final String NEW_YEAR_START =
-            "🎁 С Новым годом! • Не забудь открыть подарки!"
 
     private static final MonthDay HALLOWEEN_START = MonthDay.of(10, 24);
     private static final MonthDay HALLOWEEN_END = MonthDay.of(11, 2);
